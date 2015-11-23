@@ -25,7 +25,9 @@
 #include <QProgressDialog>
 #include <QPainter>
 #include <QMenu>
-
+#include <QSettings>
+#include <QErrorMessage>
+#include <QGraphicsDropShadowEffect>
 #include <math.h>
 
 #include "datastructures.h"
