@@ -126,6 +126,11 @@ FunctionEnd
 
 Section
 
+    SetShellVarContext current
+    SetOutPath "$APPDATA\Fraqtive"
+    File "${SRCDIR}\bookmarks.dat"
+    SetShellVarContext all
+
     SetOutPath "$INSTDIR"
 
     File "${SRCDIR}\ChangeLog"

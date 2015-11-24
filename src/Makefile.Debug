@@ -12808,6 +12808,12 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qpen.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMenu \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qmenu.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QSettings \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qsettings.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QErrorMessage \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qerrormessage.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGraphicsDropShadowEffect \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgraphicseffect.h \
 		datastructures.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QPolygonF \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QColor \
