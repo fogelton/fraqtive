@@ -286,6 +286,7 @@ void ImageView::mousePressEvent( QMouseEvent* e )
         return;
     }
 
+
     if ( e->button() == Qt::XButton1 ) {
         m_presenter->navigateBackward();
         return;
@@ -410,10 +411,10 @@ void ImageView::mouseReleaseEvent( QMouseEvent* e )
 
 void ImageView::mouseDoubleClickEvent( QMouseEvent* e )
 {
-    if ( m_interactive && !m_image.isNull() ) {
+   /* if ( m_interactive && !m_image.isNull() ) {
         QPointF point = worldTransform().inverted().map( e->pos() );
         m_presenter->switchToJulia( point );
-    }
+    }*/
 }
 
 void ImageView::wheelEvent( QWheelEvent* e )

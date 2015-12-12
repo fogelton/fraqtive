@@ -47,6 +47,7 @@ private slots:
     void sendEmailRequested();
     void reverseGradient();
     void nextBookmark();
+    void previousBookmark();
     void sendEmail(bool b);
     void mailSent(bool b);
 

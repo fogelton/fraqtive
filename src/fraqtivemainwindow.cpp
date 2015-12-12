@@ -159,14 +159,18 @@ FraqtiveMainWindow::FraqtiveMainWindow()
         QLogger::QLog_Error("main","Missing config.ini file.");
     }
 
+    action = new QAction( IconLoader::icon( "back" ), tr( "Previous Bookmark" ), this );
+    action->setShortcut( QKeySequence( Qt::Key_F9 ) );
+    connect( action, SIGNAL( triggered() ), this, SLOT( previousBookmark() ) );
+    setAction( "previousBookmark", action );
 
     action = new QAction( IconLoader::icon( "forward" ), tr( "Next Bookmark" ), this );
-    action->setShortcut( QKeySequence( Qt::Key_F12 ) );
+    action->setShortcut( QKeySequence( Qt::Key_F10 ) );
     connect( action, SIGNAL( triggered() ), this, SLOT( nextBookmark() ) );
     setAction( "nextBookmark", action );
 
     action = new QAction( IconLoader::icon( "view2d" ), tr( "Reverse Gradient" ), this );
-    action->setShortcut( QKeySequence( Qt::Key_F10 ) );
+    action->setShortcut( QKeySequence( Qt::Key_F12 ) );
     connect( action, SIGNAL( triggered() ), this, SLOT( reverseGradient() ) );
     setAction( "reverseGradient", action );
 
@@ -292,7 +296,17 @@ void FraqtiveMainWindow::reverseGradient()
         cm.setReversed(true);
     m_model->setColorMapping(cm);
 }
-
+void FraqtiveMainWindow::previousBookmark()
+{
+    BookmarkMap* map = fraqtive()->configuration()->bookmarks();
+    if(map->size()>0)
+    {
+        if(--m_bookmarkID >= map->size() || m_bookmarkID<0 )
+            m_bookmarkID=0;
+        Bookmark bookmark = map->values().at(m_bookmarkID);
+        m_model->setParameters( bookmark.fractalType(), bookmark.position() );
+    }
+}
 
 void FraqtiveMainWindow::nextBookmark()
 {

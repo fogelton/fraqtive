@@ -27,6 +27,7 @@
         <action id="loadBookmark"/>
         <action id="saveBookmark"/>
       </grid>
+      <action id="previousBookmark"/>
       <action id="nextBookmark"/>
       <action id="reverseGradient"/>
     </section>
