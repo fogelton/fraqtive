@@ -301,8 +301,8 @@ void FraqtiveMainWindow::previousBookmark()
     BookmarkMap* map = fraqtive()->configuration()->bookmarks();
     if(map->size()>0)
     {
-        if(--m_bookmarkID >= map->size() || m_bookmarkID<0 )
-            m_bookmarkID=0;
+        if(--m_bookmarkID <0 )
+            m_bookmarkID=map->size()-1;
         Bookmark bookmark = map->values().at(m_bookmarkID);
         m_model->setParameters( bookmark.fractalType(), bookmark.position() );
     }
