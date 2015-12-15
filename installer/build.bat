@@ -22,11 +22,11 @@ goto endopt
 
 if not %1 == x64 goto usage
 
-set BUILDDIR=d:\git\fraqtive-master\
+set BUILDDIR=d:\git\fraqtive\
 
 set QTDIR=C:\Qt\5.5\msvc2013_64
 set VCRTDIR=C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\redist\x64\Microsoft.VC120.CRT
-
+set path=%path%;C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin;%QTBIR%
 set ARCHITECTURE=win_x64
 set SUFFIX= (64-bit)
 
@@ -38,7 +38,7 @@ echo usage: build.bat x86^|x64
 goto :eof
 :endopt
 
-echo have to be precompiled qtvars.bat are missing!!!!!!!!!!!!!!!!!!!!!!!
+echo exe files have to be precompiled qtvars.bat are missing!!!!!!!!!!!!!!!!!!!!!!!
 ::call "%QTDIR%\bin\qtvars.bat" vsvars
 
 if not exist "%BUILDDIR%" mkdir "%BUILDDIR%"
@@ -57,6 +57,7 @@ nmake release
 
 if errorlevel 1 goto cleanup
 
+call sign.bat release\FraqtiveKinectAdapter.exe
 call sign.bat release\fraqtive.exe
 
 echo.

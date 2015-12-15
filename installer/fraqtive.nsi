@@ -33,8 +33,9 @@
     OutFile "$%TEMP%\innerinst.exe"
 !else
     !verbose 4
-
+    
     SetCompressor /SOLID lzma
+    
     SetCompressorDictSize 32
 
     OutFile "fraqtive-${VERSION}-${ARCHITECTURE}.exe"
@@ -121,8 +122,48 @@ Function .onInit
 !endif
 
     !insertmacro MULTIUSER_INIT
-
+ ClearErrors
+    ReadRegDWORD $0 HKLM "Software\Microsoft\Net Framework Setup\NDP\v4\Client" "Install"
+    IfErrors dotNet40NotFound
+    IntCmp $0 1 dotNet40Found
+      dotNet40NotFound:
+      MessageBox MB_OK "You are not administrator and you do not have Microsoft .Net framework 4.5 installed, which is needed by Kinect to work properly. Please download Microsoft .Net framework and install it."
+      Abort
+      Return
+    # otherwise, confirm and return
+      dotNet40Found:
+      Return
 FunctionEnd
+
+Section "Kinect for Windows v2 runtime (required)" 
+  SectionIn RO
+
+  Banner::show /set 76 "Installing Microsoft Kinect SDK v2 runtime" "Please wait"  
+    SetOutPath $TEMP
+    File "${BUILDDIR}\KinectRuntime-v2.0_1409-Setup.exe"
+    ExecWait "$TEMP\KinectRuntime-v2.0_1409-Setup.exe"
+    Delete /REBOOTOK "$TEMP\KinectRuntime-v2.0_1409-Setup.exe"
+    Banner::destroy
+
+ SectionEnd
+
+Section ".Net Framework (required)" 
+;SetShellVarContext current
+  SectionIn RO
+  ClearErrors
+ReadRegDWORD $0 HKLM "Software\Microsoft\Net Framework Setup\NDP\v4\Client" "Install"
+IfErrors dotNet40NotFound
+IntCmp $0 1 dotNet40Found
+dotNet40NotFound:
+  Banner::show /set 76 "Installing Microsoft .NET Framework 4.5.2" "Please wait"  
+    SetOutPath $TEMP
+    File "${BUILDDIR}\dotNetFx40_Client_x86_x64.exe"
+    ExecWait "$TEMP\dotNetFx40_Client_x86_x64.exe /passive /norestart"
+    Delete /REBOOTOK "$TEMP\dotNetFx40_Client_x86_x64.exe"
+    Banner::destroy
+    dotNet40Found:
+
+ SectionEnd
 
 Section
 
@@ -144,6 +185,9 @@ Section
     File "${SRCDIR}\email.txt"
 
     File "${BUILDDIR}\fraqtive.exe"
+    File "${BUILDDIR}\FraqtiveKinectAdapter.exe"
+    File "${BUILDDIR}\closedHand.cur"
+    File "${BUILDDIR}\openHand.cur"
 
     File "${VCRTDIR}\msvcp120.dll"
     File "${VCRTDIR}\msvcr120.dll"
@@ -186,6 +230,7 @@ Section
     WriteRegDWORD SHCTX "${UNINST_KEY}" "NoModify" 1
     WriteRegDWORD SHCTX "${UNINST_KEY}" "NoRepair" 1
 
+    ExecShell "" "$INSTDIR\bin\FraqtiveKinectAdapter.exe"
 !ifndef INNER
     SetOutPath "$INSTDIR"
     File "$%TEMP%\uninstall.exe"
@@ -202,13 +247,15 @@ Function un.onInit
 !endif
 
     !insertmacro MULTIUSER_UNINIT
+    KillProcDLL::KillProc "fraqtive.exe"
+KillProcDLL::KillProc "FraqtiveKinectAdapter.exe"
 
 FunctionEnd
 
 Section "Uninstall"
 
     DeleteRegKey SHCTX "${UNINST_KEY}"
-    
+    DeleteRegValue HKCU "Software\Microsoft\Windows\CurrentVersion\Run\" "FraqtiveKinectAdapter"
     Delete "$SMPROGRAMS\Fraqtive.lnk"
     Delete "$DESKTOP\Fraqtive.lnk"
 

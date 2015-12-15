@@ -18,7 +18,7 @@ INCPATH       = -I. -I. -IC:\Qt\5.5\msvc2013_64\include -IC:\Qt\5.5\msvc2013_64\
 LINKER        = link
 LFLAGS        = /NOLOGO /DYNAMICBASE /NXCOMPAT /DEBUG /SUBSYSTEM:WINDOWS "/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'"
 LIBS          = /LIBPATH:C:\Qt\5.5\msvc2013_64\lib C:\Qt\5.5\msvc2013_64\lib\qtmaind.lib /LIBPATH:C:\Qt\5.5\msvc2013_64\lib C:\Qt\5.5\msvc2013_64\lib\Qt5Cored.lib /LIBPATH:c:\Dropbox\openssl1.0.2d\msvc2013_64 c:\Dropbox\openssl1.0.2d\msvc2013_64\libeay32.lib c:\Dropbox\openssl1.0.2d\msvc2013_64\ssleay32.lib glu32.lib opengl32.lib shell32.lib C:\Qt\5.5\msvc2013_64\lib\Qt5OpenGLd.lib C:\Qt\5.5\msvc2013_64\lib\Qt5Widgetsd.lib C:\Qt\5.5\msvc2013_64\lib\Qt5Guid.lib C:\Qt\5.5\msvc2013_64\lib\Qt5Xmld.lib C:\Qt\5.5\msvc2013_64\lib\Qt5Networkd.lib C:\Qt\5.5\msvc2013_64\lib\Qt5Cored.lib ..\tmp\debug\fraqtive.res 
-QMAKE         = C:\Qt\5.5\msvc2013_64\bin\qmake.exe
+QMAKE         = C:\Qt\5.5\msvc2013_64\bin\qmake
 IDC           = idc
 IDL           = midl
 ZIP           = zip -r -9
@@ -453,7 +453,7 @@ $(OBJECTS) $(LIBS)
 	rc -D_DEBUG $(DEFINES) -fo ..\tmp\debug\fraqtive.res fraqtive.rc
 
 qmake: FORCE
-	@$(QMAKE) -spec win32-msvc2013 -o Makefile.Debug src.pro
+	@$(QMAKE) -o Makefile.Debug src.pro
 
 qmake_all: FORCE
 
@@ -768,6 +768,55 @@ compiler_moc_header_clean:
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_advancedsettingspage.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QFrame \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QPushButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qpushbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QRadioButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qradiobutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpacerItem \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		doubleslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSlider \
 		advancedsettingspage.h
 	C:\Qt\5.5\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/5.5/msvc2013_64/mkspecs/win32-msvc2013 -ID:/git/fraqtive/src -ID:/git/fraqtive/src -IC:/Qt/5.5/msvc2013_64/include -IC:/Qt/5.5/msvc2013_64/include/QtOpenGL -IC:/Qt/5.5/msvc2013_64/include/QtWidgets -IC:/Qt/5.5/msvc2013_64/include/QtGui -IC:/Qt/5.5/msvc2013_64/include/QtANGLE -IC:/Qt/5.5/msvc2013_64/include/QtXml -IC:/Qt/5.5/msvc2013_64/include/QtNetwork -IC:/Qt/5.5/msvc2013_64/include/QtCore advancedsettingspage.h -o ..\tmp\moc_advancedsettingspage.cpp
 
@@ -874,6 +923,52 @@ compiler_moc_header_clean:
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_animationpage.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QPushButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qpushbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpacerItem \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		doubleslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSlider \
 		animationpage.h
 	C:\Qt\5.5\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/5.5/msvc2013_64/mkspecs/win32-msvc2013 -ID:/git/fraqtive/src -ID:/git/fraqtive/src -IC:/Qt/5.5/msvc2013_64/include -IC:/Qt/5.5/msvc2013_64/include/QtOpenGL -IC:/Qt/5.5/msvc2013_64/include/QtWidgets -IC:/Qt/5.5/msvc2013_64/include/QtGui -IC:/Qt/5.5/msvc2013_64/include/QtANGLE -IC:/Qt/5.5/msvc2013_64/include/QtXml -IC:/Qt/5.5/msvc2013_64/include/QtNetwork -IC:/Qt/5.5/msvc2013_64/include/QtCore animationpage.h -o ..\tmp\moc_animationpage.cpp
 
@@ -1194,6 +1289,57 @@ compiler_moc_header_clean:
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_colorsettingspage.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QCheckBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qcheckbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QPushButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qpushbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpacerItem \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QToolButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtoolbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		colorwidget.h \
+		doubleslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSlider \
 		colorsettingspage.h
 	C:\Qt\5.5\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/5.5/msvc2013_64/mkspecs/win32-msvc2013 -ID:/git/fraqtive/src -ID:/git/fraqtive/src -IC:/Qt/5.5/msvc2013_64/include -IC:/Qt/5.5/msvc2013_64/include/QtOpenGL -IC:/Qt/5.5/msvc2013_64/include/QtWidgets -IC:/Qt/5.5/msvc2013_64/include/QtGui -IC:/Qt/5.5/msvc2013_64/include/QtANGLE -IC:/Qt/5.5/msvc2013_64/include/QtXml -IC:/Qt/5.5/msvc2013_64/include/QtNetwork -IC:/Qt/5.5/msvc2013_64/include/QtCore colorsettingspage.h -o ..\tmp\moc_colorsettingspage.cpp
 
@@ -1838,13 +1984,78 @@ compiler_moc_header_clean:
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_fractaltypedialog.h \
-		fractalpresenter.h \
-		C:\Qt\5.5\msvc2013_64\include\QtCore\QObject \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialogButtonBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialogbuttonbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QFrame \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGroupBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgroupbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpacerItem \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
+		fractaltypewidget.h \
+		..\tmp\ui_fractaltypewidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDoubleSpinBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGridLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QRadioButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qradiobutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpinBox \
+		doubleedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLineEdit \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlineedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextcursor.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextformat.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qpen.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextoption.h \
 		datastructures.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QPolygonF \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QMetaType \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QColor \
 		generatorcore.h \
+		viewcontainer.h \
+		xmlui\gradientwidget.h \
+		fractalpresenter.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QObject \
 		fractaldata.h \
 		fractaltypedialog.h
 	C:\Qt\5.5\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/5.5/msvc2013_64/mkspecs/win32-msvc2013 -ID:/git/fraqtive/src -ID:/git/fraqtive/src -IC:/Qt/5.5/msvc2013_64/include -IC:/Qt/5.5/msvc2013_64/include/QtOpenGL -IC:/Qt/5.5/msvc2013_64/include/QtWidgets -IC:/Qt/5.5/msvc2013_64/include/QtGui -IC:/Qt/5.5/msvc2013_64/include/QtANGLE -IC:/Qt/5.5/msvc2013_64/include/QtXml -IC:/Qt/5.5/msvc2013_64/include/QtNetwork -IC:/Qt/5.5/msvc2013_64/include/QtCore fractaltypedialog.h -o ..\tmp\moc_fractaltypedialog.cpp
@@ -1952,6 +2163,63 @@ compiler_moc_header_clean:
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_fractaltypewidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDoubleSpinBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGridLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGroupBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgroupbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QRadioButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qradiobutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpacerItem \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpinBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		doubleedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLineEdit \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlineedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextcursor.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextformat.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qpen.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextoption.h \
 		datastructures.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QPolygonF \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QMetaType \
@@ -2184,6 +2452,48 @@ compiler_moc_header_clean:
 		C:\Qt\5.5\msvc2013_64\include\QtCore\qfileinfo.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialog.h \
 		..\tmp\ui_fraqtivemainwindow.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDockWidget \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdockwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
+		propertytoolbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QToolBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtoolbox.h \
+		viewcontainer.h \
 		xmlui\client.h \
 		xmlui\node_p.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QString \
@@ -2222,10 +2532,7 @@ compiler_moc_header_clean:
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QUrl \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QFile \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QEventLoop \
-		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QCoreApplication \
-		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
 		C:\Qt\5.5\msvc2013_64\include\QtNetwork\QNetworkAccessManager \
 		C:\Qt\5.5\msvc2013_64\include\QtNetwork\qnetworkaccessmanager.h \
 		C:\Qt\5.5\msvc2013_64\include\QtNetwork\QSslConfiguration \
@@ -2238,7 +2545,6 @@ compiler_moc_header_clean:
 		C:\Qt\5.5\msvc2013_64\include\QtNetwork\QNetworkReply \
 		C:\Qt\5.5\msvc2013_64\include\QtNetwork\qnetworkreply.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QIODevice \
-		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
 		C:\Qt\5.5\msvc2013_64\include\QtNetwork\QNetworkRequest \
 		C:\Qt\5.5\msvc2013_64\include\QtNetwork\qnetworkrequest.h \
 		fraqtivemainwindow.h
@@ -2348,6 +2654,61 @@ compiler_moc_header_clean:
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_generateimagedialog.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialogButtonBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialogbuttonbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QFrame \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGroupBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgroupbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QRadioButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qradiobutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpacerItem \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpinBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
+		doubleslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSlider \
+		xmlui\gradientwidget.h \
 		datastructures.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QPolygonF \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QMetaType \
@@ -2460,6 +2821,64 @@ compiler_moc_header_clean:
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_generateseriesdialog.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialogButtonBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialogbuttonbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDoubleSpinBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QFrame \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGridLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGroupBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgroupbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QRadioButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qradiobutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSlider \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpacerItem \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpinBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
+		doubleslider.h \
+		viewcontainer.h \
+		xmlui\gradientwidget.h \
 		datastructures.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QPolygonF \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QMetaType \
@@ -2572,6 +2991,54 @@ compiler_moc_header_clean:
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_gradientdialog.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialogButtonBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialogbuttonbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QFrame \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
+		gradienteditor.h \
+		..\tmp\ui_gradienteditor.h \
+		shadewidget.h \
+		xmlui\gradientwidget.h \
 		gradientdialog.h
 	C:\Qt\5.5\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/5.5/msvc2013_64/mkspecs/win32-msvc2013 -ID:/git/fraqtive/src -ID:/git/fraqtive/src -IC:/Qt/5.5/msvc2013_64/include -IC:/Qt/5.5/msvc2013_64/include/QtOpenGL -IC:/Qt/5.5/msvc2013_64/include/QtWidgets -IC:/Qt/5.5/msvc2013_64/include/QtGui -IC:/Qt/5.5/msvc2013_64/include/QtANGLE -IC:/Qt/5.5/msvc2013_64/include/QtXml -IC:/Qt/5.5/msvc2013_64/include/QtNetwork -IC:/Qt/5.5/msvc2013_64/include/QtCore gradientdialog.h -o ..\tmp\moc_gradientdialog.cpp
 
@@ -2678,6 +3145,44 @@ compiler_moc_header_clean:
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_gradienteditor.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		shadewidget.h \
 		gradienteditor.h
 	C:\Qt\5.5\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/5.5/msvc2013_64/mkspecs/win32-msvc2013 -ID:/git/fraqtive/src -ID:/git/fraqtive/src -IC:/Qt/5.5/msvc2013_64/include -IC:/Qt/5.5/msvc2013_64/include/QtOpenGL -IC:/Qt/5.5/msvc2013_64/include/QtWidgets -IC:/Qt/5.5/msvc2013_64/include/QtGui -IC:/Qt/5.5/msvc2013_64/include/QtANGLE -IC:/Qt/5.5/msvc2013_64/include/QtXml -IC:/Qt/5.5/msvc2013_64/include/QtNetwork -IC:/Qt/5.5/msvc2013_64/include/QtCore gradienteditor.h -o ..\tmp\moc_gradienteditor.cpp
 
@@ -3154,6 +3659,63 @@ compiler_moc_header_clean:
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_loadbookmarkdialog.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialogButtonBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialogbuttonbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QFrame \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGroupBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgroupbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpacerItem \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
+		bookmarklistview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QListView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlistview.h \
+		datastructures.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\QPolygonF \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QMetaType \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\QColor \
+		generatorcore.h \
+		viewcontainer.h \
+		xmlui\gradientwidget.h \
 		loadbookmarkdialog.h
 	C:\Qt\5.5\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/5.5/msvc2013_64/mkspecs/win32-msvc2013 -ID:/git/fraqtive/src -ID:/git/fraqtive/src -IC:/Qt/5.5/msvc2013_64/include -IC:/Qt/5.5/msvc2013_64/include/QtOpenGL -IC:/Qt/5.5/msvc2013_64/include/QtWidgets -IC:/Qt/5.5/msvc2013_64/include/QtGui -IC:/Qt/5.5/msvc2013_64/include/QtANGLE -IC:/Qt/5.5/msvc2013_64/include/QtXml -IC:/Qt/5.5/msvc2013_64/include/QtNetwork -IC:/Qt/5.5/msvc2013_64/include/QtCore loadbookmarkdialog.h -o ..\tmp\moc_loadbookmarkdialog.cpp
 
@@ -3261,6 +3823,60 @@ compiler_moc_header_clean:
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_loadpresetdialog.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialogButtonBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialogbuttonbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QFrame \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QTabWidget \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
+		presetlistview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QListView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlistview.h \
+		datastructures.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\QPolygonF \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QMetaType \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\QColor \
+		generatorcore.h \
+		xmlui\gradientwidget.h \
 		loadpresetdialog.h
 	C:\Qt\5.5\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/5.5/msvc2013_64/mkspecs/win32-msvc2013 -ID:/git/fraqtive/src -ID:/git/fraqtive/src -IC:/Qt/5.5/msvc2013_64/include -IC:/Qt/5.5/msvc2013_64/include/QtOpenGL -IC:/Qt/5.5/msvc2013_64/include/QtWidgets -IC:/Qt/5.5/msvc2013_64/include/QtGui -IC:/Qt/5.5/msvc2013_64/include/QtANGLE -IC:/Qt/5.5/msvc2013_64/include/QtXml -IC:/Qt/5.5/msvc2013_64/include/QtNetwork -IC:/Qt/5.5/msvc2013_64/include/QtCore loadpresetdialog.h -o ..\tmp\moc_loadpresetdialog.cpp
 
@@ -3496,6 +4112,61 @@ compiler_moc_header_clean:
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_parameterspage.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDoubleSpinBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLineEdit \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlineedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextcursor.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextformat.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qpen.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QPushButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qpushbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpacerItem \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QToolButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtoolbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		doubleedit.h \
 		parameterspage.h
 	C:\Qt\5.5\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/5.5/msvc2013_64/mkspecs/win32-msvc2013 -ID:/git/fraqtive/src -ID:/git/fraqtive/src -IC:/Qt/5.5/msvc2013_64/include -IC:/Qt/5.5/msvc2013_64/include/QtOpenGL -IC:/Qt/5.5/msvc2013_64/include/QtWidgets -IC:/Qt/5.5/msvc2013_64/include/QtGui -IC:/Qt/5.5/msvc2013_64/include/QtANGLE -IC:/Qt/5.5/msvc2013_64/include/QtXml -IC:/Qt/5.5/msvc2013_64/include/QtNetwork -IC:/Qt/5.5/msvc2013_64/include/QtCore parameterspage.h -o ..\tmp\moc_parameterspage.cpp
 
@@ -3813,6 +4484,57 @@ compiler_moc_header_clean:
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_renamedialog.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialogButtonBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialogbuttonbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QFrame \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLineEdit \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlineedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextcursor.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextformat.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qpen.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
+		xmlui\gradientwidget.h \
 		renamedialog.h
 	C:\Qt\5.5\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/5.5/msvc2013_64/mkspecs/win32-msvc2013 -ID:/git/fraqtive/src -ID:/git/fraqtive/src -IC:/Qt/5.5/msvc2013_64/include -IC:/Qt/5.5/msvc2013_64/include/QtOpenGL -IC:/Qt/5.5/msvc2013_64/include/QtWidgets -IC:/Qt/5.5/msvc2013_64/include/QtGui -IC:/Qt/5.5/msvc2013_64/include/QtANGLE -IC:/Qt/5.5/msvc2013_64/include/QtXml -IC:/Qt/5.5/msvc2013_64/include/QtNetwork -IC:/Qt/5.5/msvc2013_64/include/QtCore renamedialog.h -o ..\tmp\moc_renamedialog.cpp
 
@@ -3920,6 +4642,65 @@ compiler_moc_header_clean:
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_savebookmarkdialog.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialogButtonBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialogbuttonbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QFrame \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLineEdit \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlineedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextcursor.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextformat.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qpen.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
+		bookmarklistview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QListView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlistview.h \
+		datastructures.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\QPolygonF \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QMetaType \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\QColor \
+		generatorcore.h \
+		xmlui\gradientwidget.h \
 		savebookmarkdialog.h
 	C:\Qt\5.5\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/5.5/msvc2013_64/mkspecs/win32-msvc2013 -ID:/git/fraqtive/src -ID:/git/fraqtive/src -IC:/Qt/5.5/msvc2013_64/include -IC:/Qt/5.5/msvc2013_64/include/QtOpenGL -IC:/Qt/5.5/msvc2013_64/include/QtWidgets -IC:/Qt/5.5/msvc2013_64/include/QtGui -IC:/Qt/5.5/msvc2013_64/include/QtANGLE -IC:/Qt/5.5/msvc2013_64/include/QtXml -IC:/Qt/5.5/msvc2013_64/include/QtNetwork -IC:/Qt/5.5/msvc2013_64/include/QtCore savebookmarkdialog.h -o ..\tmp\moc_savebookmarkdialog.cpp
 
@@ -4027,6 +4808,65 @@ compiler_moc_header_clean:
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_savepresetdialog.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialogButtonBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialogbuttonbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QFrame \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLineEdit \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlineedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextcursor.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextformat.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qpen.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
+		presetlistview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QListView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlistview.h \
+		datastructures.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\QPolygonF \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QMetaType \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\QColor \
+		generatorcore.h \
+		xmlui\gradientwidget.h \
 		savepresetdialog.h
 	C:\Qt\5.5\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IC:/Qt/5.5/msvc2013_64/mkspecs/win32-msvc2013 -ID:/git/fraqtive/src -ID:/git/fraqtive/src -IC:/Qt/5.5/msvc2013_64/include -IC:/Qt/5.5/msvc2013_64/include/QtOpenGL -IC:/Qt/5.5/msvc2013_64/include/QtWidgets -IC:/Qt/5.5/msvc2013_64/include/QtGui -IC:/Qt/5.5/msvc2013_64/include/QtANGLE -IC:/Qt/5.5/msvc2013_64/include/QtXml -IC:/Qt/5.5/msvc2013_64/include/QtNetwork -IC:/Qt/5.5/msvc2013_64/include/QtCore savepresetdialog.h -o ..\tmp\moc_savepresetdialog.cpp
 
@@ -4715,6 +5555,59 @@ compiler_moc_header_clean:
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_printimagedialog.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialogButtonBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialogbuttonbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QFrame \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGroupBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgroupbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QRadioButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qradiobutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpacerItem \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpinBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
+		xmlui\gradientwidget.h \
 		datastructures.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QPolygonF \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QMetaType \
@@ -5965,6 +6858,63 @@ compiler_uic_clean:
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_fractaltypewidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDoubleSpinBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGridLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGroupBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgroupbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QRadioButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qradiobutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpacerItem \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpinBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		doubleedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLineEdit \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlineedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextcursor.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextformat.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qpen.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextoption.h \
 		datastructures.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QPolygonF \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QMetaType \
@@ -7028,7 +7978,45 @@ compiler_uic_clean:
 		C:\Qt\5.5\msvc2013_64\include\QtCore\qfiledevice.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
-		..\tmp\ui_gradienteditor.h
+		..\tmp\ui_gradienteditor.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		shadewidget.h
 	C:\Qt\5.5\msvc2013_64\bin\uic.exe gradientdialog.ui -o ..\tmp\ui_gradientdialog.h
 
 ..\tmp\ui_gradienteditor.h: gradienteditor.ui \
@@ -9210,6 +10198,55 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_advancedsettingspage.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QFrame \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QPushButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qpushbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QRadioButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qradiobutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpacerItem \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		doubleslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSlider \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMessageBox \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qmessagebox.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialog.h \
@@ -9328,6 +10365,52 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_animationpage.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QPushButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qpushbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpacerItem \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		doubleslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSlider \
 		fractalmodel.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QObject \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QColor \
@@ -9483,6 +10566,38 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		renamedialog.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialog \
 		..\tmp\ui_renamedialog.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialogButtonBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialogbuttonbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QFrame \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLineEdit \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlineedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextcursor.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextformat.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qpen.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
+		xmlui/gradientwidget.h \
 		debug\fraqtive_pch.obj
 
 ..\tmp\debug\bookmarkmodel.obj: bookmarkmodel.cpp bookmarkmodel.h \
@@ -9728,6 +10843,57 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_colorsettingspage.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QCheckBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qcheckbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QPushButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qpushbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpacerItem \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QToolButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtoolbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		colorwidget.h \
+		doubleslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSlider \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QColorDialog \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qcolordialog.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialog.h \
@@ -9745,10 +10911,27 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		gradientdialog.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialog \
 		..\tmp\ui_gradientdialog.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialogButtonBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialogbuttonbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QFrame \
+		gradienteditor.h \
+		..\tmp\ui_gradienteditor.h \
+		shadewidget.h \
+		xmlui/gradientwidget.h \
 		loadpresetdialog.h \
 		..\tmp\ui_loadpresetdialog.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QTabWidget \
+		presetlistview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QListView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlistview.h \
 		savepresetdialog.h \
 		..\tmp\ui_savepresetdialog.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLineEdit \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlineedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextcursor.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextformat.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qpen.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextoption.h \
 		datafunctions.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QGradient \
 		debug\fraqtive_pch.obj
@@ -10904,26 +12087,89 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_fractaltypedialog.h \
-		fractalpresenter.h \
-		C:\Qt\5.5\msvc2013_64\include\QtCore\QObject \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialogButtonBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialogbuttonbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QFrame \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGroupBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgroupbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpacerItem \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
+		fractaltypewidget.h \
+		..\tmp\ui_fractaltypewidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDoubleSpinBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGridLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QRadioButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qradiobutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpinBox \
+		doubleedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLineEdit \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlineedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextcursor.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextformat.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qpen.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextoption.h \
 		datastructures.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QPolygonF \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QMetaType \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QColor \
 		generatorcore.h \
+		viewcontainer.h \
+		xmlui/gradientwidget.h \
+		fractalpresenter.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QObject \
 		fractaldata.h \
 		fractalmodel.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QTime \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\qdatetime.h \
 		imageview.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
 		abstractview.h \
 		datafunctions.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QGradient \
 		iconloader.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QPixmap \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QIcon \
-		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
 		debug\fraqtive_pch.obj
 
 ..\tmp\debug\fractaltypewidget.obj: fractaltypewidget.cpp fractaltypewidget.h \
@@ -11030,6 +12276,63 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_fractaltypewidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDoubleSpinBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGridLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGroupBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgroupbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QRadioButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qradiobutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpacerItem \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpinBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		doubleedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLineEdit \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlineedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextcursor.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextformat.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qpen.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextoption.h \
 		datastructures.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QPolygonF \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QMetaType \
@@ -11184,6 +12487,40 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtCore\qfileinfo.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialog.h \
 		..\tmp\ui_fraqtivemainwindow.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDockWidget \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdockwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
+		propertytoolbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QToolBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtoolbox.h \
+		viewcontainer.h \
 		xmlui/client.h \
 		xmlui/node_p.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QString \
@@ -11217,7 +12554,6 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QFile \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QEventLoop \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QCoreApplication \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
 		C:\Qt\5.5\msvc2013_64\include\QtNetwork\QNetworkAccessManager \
 		C:\Qt\5.5\msvc2013_64\include\QtNetwork\qnetworkaccessmanager.h \
 		C:\Qt\5.5\msvc2013_64\include\QtNetwork\QSslConfiguration \
@@ -11234,10 +12570,8 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		aboutbox.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialog \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QFrame \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QScrollArea \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qscrollarea.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
 		guidedialog.h \
 		iconloader.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QPixmap \
@@ -11247,7 +12581,6 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qproxystyle.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QCommonStyle \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qcommonstyle.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
 		xmlui\macstyle.h \
 		debug\fraqtive_pch.obj
 
@@ -11363,6 +12696,48 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtCore\qfileinfo.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialog.h \
 		..\tmp\ui_fraqtivemainwindow.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDockWidget \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdockwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
+		propertytoolbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QToolBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtoolbox.h \
+		viewcontainer.h \
 		xmlui/client.h \
 		xmlui/node_p.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QString \
@@ -11401,10 +12776,7 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QUrl \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QFile \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QEventLoop \
-		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QCoreApplication \
-		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
 		C:\Qt\5.5\msvc2013_64\include\QtNetwork\QNetworkAccessManager \
 		C:\Qt\5.5\msvc2013_64\include\QtNetwork\qnetworkaccessmanager.h \
 		C:\Qt\5.5\msvc2013_64\include\QtNetwork\QSslConfiguration \
@@ -11417,7 +12789,6 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtNetwork\QNetworkReply \
 		C:\Qt\5.5\msvc2013_64\include\QtNetwork\qnetworkreply.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QIODevice \
-		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
 		C:\Qt\5.5\msvc2013_64\include\QtNetwork\QNetworkRequest \
 		C:\Qt\5.5\msvc2013_64\include\QtNetwork\qnetworkrequest.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QCloseEvent \
@@ -11437,8 +12808,6 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qpen.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMenu \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qmenu.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QSettings \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\qsettings.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QErrorMessage \
@@ -11456,8 +12825,35 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		fractaltypedialog.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialog \
 		..\tmp\ui_fractaltypedialog.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialogButtonBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialogbuttonbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QFrame \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGroupBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgroupbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpacerItem \
+		fractaltypewidget.h \
+		..\tmp\ui_fractaltypewidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDoubleSpinBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGridLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QRadioButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qradiobutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpinBox \
+		doubleedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLineEdit \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlineedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextcursor.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextformat.h \
+		xmlui/gradientwidget.h \
 		gradientdialog.h \
 		..\tmp\ui_gradientdialog.h \
+		gradienteditor.h \
+		..\tmp\ui_gradienteditor.h \
+		shadewidget.h \
 		imageview.h \
 		abstractview.h \
 		meshview.h \
@@ -11478,23 +12874,25 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QSurfaceFormat \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qsurfaceformat.h \
 		fraqtiveapplication.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
-		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
-		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QPointer \
 		configurationdata.h \
 		loadbookmarkdialog.h \
 		..\tmp\ui_loadbookmarkdialog.h \
+		bookmarklistview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QListView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlistview.h \
 		savebookmarkdialog.h \
 		..\tmp\ui_savebookmarkdialog.h \
 		loadpresetdialog.h \
 		..\tmp\ui_loadpresetdialog.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QTabWidget \
+		presetlistview.h \
 		savepresetdialog.h \
 		..\tmp\ui_savepresetdialog.h \
 		generateimagedialog.h \
 		..\tmp\ui_generateimagedialog.h \
+		doubleslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSlider \
 		generateseriesdialog.h \
 		..\tmp\ui_generateseriesdialog.h \
 		imagegenerator.h \
@@ -11506,10 +12904,8 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QPixmap \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QIcon \
 		xmlui/toolstrip.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QToolButton \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtoolbutton.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
 		xmlui/builder.h \
 		printimagedialog.h \
 		..\tmp\ui_printimagedialog.h \
@@ -11620,30 +13016,76 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_generateimagedialog.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialogButtonBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialogbuttonbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QFrame \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGroupBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgroupbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QRadioButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qradiobutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpacerItem \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpinBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
+		doubleslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSlider \
+		xmlui/gradientwidget.h \
 		datastructures.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QPolygonF \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QMetaType \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QColor \
 		generatorcore.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDesktopWidget \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
 		fraqtiveapplication.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
-		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
-		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
-		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
-		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QPointer \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\qpointer.h \
 		configurationdata.h \
-		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
 		datafunctions.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QGradient \
 		iconloader.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QPixmap \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QIcon \
-		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
 		debug\fraqtive_pch.obj
 
 ..\tmp\debug\generateseriesdialog.obj: generateseriesdialog.cpp generateseriesdialog.h \
@@ -11751,12 +13193,11 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_generateseriesdialog.h \
-		datastructures.h \
-		C:\Qt\5.5\msvc2013_64\include\QtGui\QPolygonF \
-		C:\Qt\5.5\msvc2013_64\include\QtCore\QMetaType \
-		C:\Qt\5.5\msvc2013_64\include\QtGui\QColor \
-		generatorcore.h \
-		fraqtiveapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
@@ -11764,6 +13205,58 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialogButtonBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialogbuttonbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDoubleSpinBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QFrame \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGridLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGroupBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgroupbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QRadioButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qradiobutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSlider \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpacerItem \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpinBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
+		doubleslider.h \
+		viewcontainer.h \
+		xmlui/gradientwidget.h \
+		datastructures.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\QPolygonF \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QMetaType \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\QColor \
+		generatorcore.h \
+		fraqtiveapplication.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QPointer \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\qpointer.h \
 		fractalpresenter.h \
@@ -11773,16 +13266,13 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QTime \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\qdatetime.h \
 		imageview.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
 		abstractview.h \
 		configurationdata.h \
-		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
 		datafunctions.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QGradient \
 		iconloader.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QPixmap \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QIcon \
-		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
 		debug\fraqtive_pch.obj
 
 ..\tmp\debug\gradientdialog.obj: gradientdialog.cpp gradientdialog.h \
@@ -11890,10 +13380,57 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_gradientdialog.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialogButtonBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialogbuttonbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QFrame \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
+		gradienteditor.h \
+		..\tmp\ui_gradienteditor.h \
+		shadewidget.h \
+		xmlui/gradientwidget.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QPushButton \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qpushbutton.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
-		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
 		datastructures.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QPolygonF \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QMetaType \
@@ -12008,6 +13545,44 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_gradienteditor.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		shadewidget.h \
 		datafunctions.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QGradient \
 		datastructures.h \
@@ -12689,11 +14264,11 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_loadbookmarkdialog.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QPushButton \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qpushbutton.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
-		fraqtiveapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
@@ -12701,15 +14276,58 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
-		C:\Qt\5.5\msvc2013_64\include\QtCore\QPointer \
-		C:\Qt\5.5\msvc2013_64\include\QtCore\qpointer.h \
-		configurationdata.h \
-		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialogButtonBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialogbuttonbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QFrame \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGroupBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgroupbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpacerItem \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
+		bookmarklistview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QListView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlistview.h \
 		datastructures.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QPolygonF \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QMetaType \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QColor \
 		generatorcore.h \
+		viewcontainer.h \
+		xmlui/gradientwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QPushButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qpushbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		fraqtiveapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QPointer \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qpointer.h \
+		configurationdata.h \
 		fractalpresenter.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QObject \
 		fractaldata.h \
@@ -12717,7 +14335,6 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QTime \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\qdatetime.h \
 		imageview.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
 		abstractview.h \
 		iconloader.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QPixmap \
@@ -12829,11 +14446,11 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_loadpresetdialog.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QPushButton \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qpushbutton.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
-		fraqtiveapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
@@ -12841,15 +14458,55 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
-		C:\Qt\5.5\msvc2013_64\include\QtCore\QPointer \
-		C:\Qt\5.5\msvc2013_64\include\QtCore\qpointer.h \
-		configurationdata.h \
-		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialogButtonBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialogbuttonbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QFrame \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QTabWidget \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
+		presetlistview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QListView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlistview.h \
 		datastructures.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QPolygonF \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QMetaType \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QColor \
 		generatorcore.h \
+		xmlui/gradientwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QPushButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qpushbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		fraqtiveapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QPointer \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qpointer.h \
+		configurationdata.h \
 		fractalmodel.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QObject \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QTime \
@@ -13214,6 +14871,61 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_parameterspage.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDoubleSpinBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLineEdit \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlineedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextcursor.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextformat.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qpen.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QPushButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qpushbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpacerItem \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QToolButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtoolbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		doubleedit.h \
 		fractalmodel.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QObject \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QColor \
@@ -13227,10 +14939,26 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialog \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialog.h \
 		..\tmp\ui_fractaltypedialog.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialogButtonBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialogbuttonbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QFrame \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGroupBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgroupbox.h \
+		fractaltypewidget.h \
+		..\tmp\ui_fractaltypewidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGridLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QRadioButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qradiobutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpinBox \
+		viewcontainer.h \
+		xmlui/gradientwidget.h \
 		fractalpresenter.h \
 		fractaldata.h \
 		loadbookmarkdialog.h \
 		..\tmp\ui_loadbookmarkdialog.h \
+		bookmarklistview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QListView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlistview.h \
 		savebookmarkdialog.h \
 		..\tmp\ui_savebookmarkdialog.h \
 		debug\fraqtive_pch.obj
@@ -13375,6 +15103,38 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		renamedialog.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialog \
 		..\tmp\ui_renamedialog.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialogButtonBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialogbuttonbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QFrame \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLineEdit \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlineedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextcursor.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextformat.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qpen.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
+		xmlui/gradientwidget.h \
 		debug\fraqtive_pch.obj
 
 ..\tmp\debug\presetmodel.obj: presetmodel.cpp presetmodel.h \
@@ -13614,10 +15374,71 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		parameterspage.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
 		..\tmp\ui_parameterspage.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDoubleSpinBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLineEdit \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlineedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextcursor.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextformat.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qpen.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QPushButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qpushbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpacerItem \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QToolButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtoolbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		doubleedit.h \
 		colorsettingspage.h \
 		..\tmp\ui_colorsettingspage.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QCheckBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qcheckbox.h \
+		colorwidget.h \
+		doubleslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSlider \
 		advancedsettingspage.h \
 		..\tmp\ui_advancedsettingspage.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QFrame \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QRadioButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qradiobutton.h \
 		animationpage.h \
 		..\tmp\ui_animationpage.h \
 		debug\fraqtive_pch.obj
@@ -13727,10 +15548,60 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_renamedialog.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialogButtonBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialogbuttonbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QFrame \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLineEdit \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlineedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextcursor.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextformat.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qpen.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
+		xmlui/gradientwidget.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QPushButton \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qpushbutton.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
-		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMessageBox \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qmessagebox.h \
 		iconloader.h \
@@ -13843,13 +15714,11 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_savebookmarkdialog.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QPushButton \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qpushbutton.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMessageBox \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qmessagebox.h \
-		fraqtiveapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
@@ -13857,15 +15726,62 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
-		C:\Qt\5.5\msvc2013_64\include\QtCore\QPointer \
-		C:\Qt\5.5\msvc2013_64\include\QtCore\qpointer.h \
-		configurationdata.h \
-		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialogButtonBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialogbuttonbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QFrame \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLineEdit \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlineedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextcursor.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextformat.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qpen.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
+		bookmarklistview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QListView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlistview.h \
 		datastructures.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QPolygonF \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QMetaType \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QColor \
 		generatorcore.h \
+		xmlui/gradientwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QPushButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qpushbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMessageBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qmessagebox.h \
+		fraqtiveapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QPointer \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qpointer.h \
+		configurationdata.h \
 		fractalmodel.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QObject \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QTime \
@@ -13980,13 +15896,11 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_savepresetdialog.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QPushButton \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qpushbutton.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMessageBox \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qmessagebox.h \
-		fraqtiveapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
@@ -13994,15 +15908,62 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
-		C:\Qt\5.5\msvc2013_64\include\QtCore\QPointer \
-		C:\Qt\5.5\msvc2013_64\include\QtCore\qpointer.h \
-		configurationdata.h \
-		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialogButtonBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialogbuttonbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QFrame \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLineEdit \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlineedit.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextcursor.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextformat.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qpen.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qtextoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
+		presetlistview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QListView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlistview.h \
 		datastructures.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QPolygonF \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QMetaType \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QColor \
 		generatorcore.h \
+		xmlui/gradientwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QPushButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qpushbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QMessageBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qmessagebox.h \
+		fraqtiveapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QPointer \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qpointer.h \
+		configurationdata.h \
 		fractalmodel.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QObject \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QTime \
@@ -14713,30 +16674,74 @@ debug\fraqtive_pch.obj: fraqtive_pch.h C:\Qt\5.5\msvc2013_64\include\QtCore\QtCo
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\qtouchdevice.h \
 		..\tmp\ui_printimagedialog.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QAction \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qaction.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qactiongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QButtonGroup \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qbuttongroup.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDialogButtonBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdialogbuttonbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QFrame \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qframe.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QGroupBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgroupbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QHeaderView \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qabstractitemmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qitemselectionmodel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtGui\qvalidator.h \
+		C:\Qt\5.5\msvc2013_64\include\QtCore\qregularexpression.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qstyle.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qtabwidget.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QLabel \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qlabel.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QRadioButton \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qradiobutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpacerItem \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QSpinBox \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qspinbox.h \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QVBoxLayout \
+		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QWidget \
+		xmlui/gradientwidget.h \
 		datastructures.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QPolygonF \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QMetaType \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QColor \
 		generatorcore.h \
 		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QDesktopWidget \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h \
 		fraqtiveapplication.h \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\QApplication \
-		C:\Qt\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
-		C:\Qt\5.5\msvc2013_64\include\QtCore\qcoreapplication.h \
-		C:\Qt\5.5\msvc2013_64\include\QtCore\qeventloop.h \
-		C:\Qt\5.5\msvc2013_64\include\QtGui\qguiapplication.h \
-		C:\Qt\5.5\msvc2013_64\include\QtGui\qinputmethod.h \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\QPointer \
 		C:\Qt\5.5\msvc2013_64\include\QtCore\qpointer.h \
 		configurationdata.h \
-		C:\Qt\5.5\msvc2013_64\include\QtCore\QVariant \
 		datafunctions.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QGradient \
 		iconloader.h \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QPixmap \
 		C:\Qt\5.5\msvc2013_64\include\QtGui\QIcon \
-		C:\Qt\5.5\msvc2013_64\include\QtGui\qicon.h \
 		debug\fraqtive_pch.obj
 
 ..\tmp\debug\generatorcore.obj: generatorcore.cpp generatorcore.h \
