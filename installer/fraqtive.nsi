@@ -188,6 +188,7 @@ Section
     File "${BUILDDIR}\FraqtiveKinectAdapter.exe"
     File "${BUILDDIR}\closedHand.cur"
     File "${BUILDDIR}\openHand.cur"
+    File "${BUILDDIR}\lassoHand.cur"
 
     File "${VCRTDIR}\msvcp120.dll"
     File "${VCRTDIR}\msvcr120.dll"
