@@ -48,8 +48,8 @@ private slots:
     void reverseGradient();
     void nextBookmark();
     void previousBookmark();
-    void sendEmail(bool b);
-    void mailSent(bool b);
+   // void sendEmail(bool b);
+   // void mailSent(bool b);
 
     void fractalType();
     void editGradient();
@@ -100,10 +100,10 @@ private:
     QString m_body,m_greetings;
     QString m_signature;
     QString m_subject;
-    QString m_smtp_username;
-    QString m_smtp_password;
-    int m_smtp_port;
-    QString m_smtp_server;
+  //  QString m_smtp_username;
+  //  QString m_smtp_password;
+  //  int m_smtp_port;
+  //  QString m_smtp_server;
     QString m_fileName,m_urlFileName;
     QString m_ftp_username;
     QString m_ftp_password;

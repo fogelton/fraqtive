@@ -141,12 +141,12 @@ FraqtiveMainWindow::FraqtiveMainWindow()
     m_log_manager->addDestination(QCoreApplication::applicationDirPath().append("/logs.log"),  QStringList("main"), QLogger::InfoLevel);
 
     QSettings settings(QCoreApplication::applicationDirPath().append("/config.ini"), QSettings::IniFormat);
-    settings.beginGroup("smtp");
+   /* settings.beginGroup("smtp");
     m_smtp_username=settings.value("username").toString();
     m_smtp_password=settings.value("password").toString();
     m_smtp_server=settings.value("server").toString();
     m_smtp_port=settings.value("port",465).toInt();
-    settings.endGroup();
+    settings.endGroup();*/
     settings.beginGroup("ftp");
     m_ftp_username=settings.value("username").toString();
     m_ftp_password=settings.value("password").toString();
@@ -154,7 +154,7 @@ FraqtiveMainWindow::FraqtiveMainWindow()
     m_ftp_port=settings.value("port",21).toInt();
     settings.endGroup();
 
-    if(m_smtp_server.isEmpty() || m_smtp_username.isEmpty() || m_smtp_password.isEmpty())
+    if(m_ftp_server.isEmpty())
     {
         QLogger::QLog_Error("main","Missing config.ini file.");
     }
@@ -399,12 +399,14 @@ void FraqtiveMainWindow::sendEmailRequested()
                     {
                         delete writer;
                         FtpUploader ftp(m_ftp_username,m_ftp_password,m_ftp_server,m_ftp_port,this);
-                        connect(&ftp,SIGNAL(uploadSucess(bool)),this,SLOT(sendEmail(bool)));
+                        //connect(&ftp,SIGNAL(uploadSucess(bool)),this,SLOT(sendEmail(bool)));
                         QFileInfo finfo(fileName);
                         qDebug()<<finfo.fileName();
-                        qDebug()<<QString::number(QDate::currentDate().month());
-                        m_urlFileName=m_ftp_server+QString::number(QDate::currentDate().month()) +"/"+finfo.fileName();
+                        //qDebug()<<QString::number(QDate::currentDate().month());
+                        m_urlFileName="ftp://"+m_ftp_server+"/"+finfo.fileName();
                         ftp.uploadFile(fileName,m_urlFileName);
+                        QLogger::QLog_Info("main",m_urlFileName);
+                        qDebug()<<m_urlFileName;
                         //by the following bracket resources are free and file can be deleted
                     }
                     QFile a(fileName);
@@ -419,6 +421,7 @@ void FraqtiveMainWindow::sendEmailRequested()
         }
     }
 }
+/*
 void FraqtiveMainWindow::mailSent(bool b)
 {
 
@@ -437,8 +440,8 @@ void FraqtiveMainWindow::mailSent(bool b)
         msgBox.setText("Email note delivered, please contact support.");
     }
     msgBox.exec();
-}
-QString FraqtiveMainWindow::getEmailSubject(QString path)
+}*/
+/*QString FraqtiveMainWindow::getEmailSubject(QString path)
 {
     QFile emailText(path);
     if (!emailText.open(QIODevice::ReadOnly | QIODevice::Text))
@@ -499,7 +502,7 @@ void FraqtiveMainWindow::sendEmail(bool b)
         msgBox.setIcon(QMessageBox::Critical);
         msgBox.exec();
     }
-}
+}*/
 void FraqtiveMainWindow::closeEvent( QCloseEvent* e )
 {
     e->accept();

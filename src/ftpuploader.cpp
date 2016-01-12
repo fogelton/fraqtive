@@ -5,7 +5,7 @@ adjusted the work from internet
 */
 
 #include "ftpuploader.h"
-
+#include <QMessageBox>
 
 FtpUploader::FtpUploader(QString username, QString password, QString server, int port, QWidget *p ): QWidget(p)
 {
@@ -55,7 +55,11 @@ void FtpUploader::uploadFile(const QString fileName,const QString &urlFileName) 
 
         if(m_reply->error()==QNetworkReply::NoError && !m_progress->wasCanceled())
         {
-            emit uploadSucess(true);
+            //emit uploadSucess(true);
+            QMessageBox m;
+            m.setIcon(QMessageBox::Information);
+            m.setText(tr("Fractal is uploaded successfully."));
+            m.exec();
         }
         else
         {
@@ -64,7 +68,11 @@ void FtpUploader::uploadFile(const QString fileName,const QString &urlFileName) 
             if(!m_progress->wasCanceled())//in a case if something is received after abort
                 m_progress->cancel();
             QLogger::QLog_Error("ftp",m_reply->errorString());
-            emit uploadSucess(false);
+            QMessageBox m;
+            m.setIcon(QMessageBox::Information);
+            m.setText(tr("Network error, please contact support."));
+            m.exec();
+          //  emit uploadSucess(false);
         }
         qDebug() << "Finished" << m_reply->error();
         qDebug() << "Finished" << m_reply->errorString();
@@ -79,6 +87,7 @@ void FtpUploader::uploadFile(const QString fileName,const QString &urlFileName) 
 }
 void FtpUploader::displayProgress(qint64 bytesSent, qint64 bytesTotal)
 {
+    Q_UNUSED(bytesTotal);
     m_progress->setValue(bytesSent);
 }
 

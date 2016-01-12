@@ -51,7 +51,7 @@ HEADERS   += aboutbox.h \
              viewcontainer.h \
     ftpuploader.h \
     QLogger.h \
-    smtpclient.h \
+ #   smtpclient.h \
     printimagedialog.h
 
 SOURCES   += aboutbox.cpp \
@@ -98,7 +98,7 @@ SOURCES   += aboutbox.cpp \
              viewcontainer.cpp \
     ftpuploader.cpp \
     QLogger.cpp \
-    smtpclient.cpp \
+ #   smtpclient.cpp \
     printimagedialog.cpp
 
 FORMS     += advancedsettingspage.ui \

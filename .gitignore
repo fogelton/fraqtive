@@ -1,0 +1,9 @@
+debug/
+release/
+tmp/
+src/Makefile
+src/Makefile.Debug
+src/Makefile.Release
+src/debug/
+src/release/
+fraqtive.pro.user

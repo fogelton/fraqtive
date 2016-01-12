@@ -411,6 +411,8 @@ void ImageView::mouseReleaseEvent( QMouseEvent* e )
 
 void ImageView::mouseDoubleClickEvent( QMouseEvent* e )
 {
+    //switch to julia fractals disabled
+    Q_UNUSED(e);
    /* if ( m_interactive && !m_image.isNull() ) {
         QPointF point = worldTransform().inverted().map( e->pos() );
         m_presenter->switchToJulia( point );
