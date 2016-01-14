@@ -141,7 +141,7 @@ FraqtiveMainWindow::FraqtiveMainWindow()
     m_log_manager->addDestination(QCoreApplication::applicationDirPath().append("/logs.log"),  QStringList("main"), QLogger::InfoLevel);
 
     QSettings settings(QCoreApplication::applicationDirPath().append("/config.ini"), QSettings::IniFormat);
-   /* settings.beginGroup("smtp");
+    /* settings.beginGroup("smtp");
     m_smtp_username=settings.value("username").toString();
     m_smtp_password=settings.value("password").toString();
     m_smtp_server=settings.value("server").toString();
@@ -175,7 +175,8 @@ FraqtiveMainWindow::FraqtiveMainWindow()
     setAction( "reverseGradient", action );
 
     m_bookmarkID=-1;
-
+    m_printImageDialog =new PrintImageDialog(this);
+    /*
     //setting up hte small widget sending email
     m_sendEmail_widget = new QWidget(this,Qt::Tool | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
     m_sendEmail_widget->setFocusPolicy(Qt::NoFocus);
@@ -193,7 +194,7 @@ FraqtiveMainWindow::FraqtiveMainWindow()
     shadowWidget->setGraphicsEffect(shadow);
     QVBoxLayout *vlay = new QVBoxLayout(shadowWidget);
     m_sendEmail_button= new QPushButton("send fractal via email",shadowWidget);
-    QObject::connect(m_sendEmail_button,SIGNAL(clicked(bool)),this,SLOT(sendEmailRequested()));
+    QObject::connect(m_sendEmail_button,SIGNAL(clicked(bool)),this,SLOT(processFractal()));
 
     m_sendEmail_lineEdit = new QLineEdit(shadowWidget);
     m_sendEmail_lineEdit->setPlaceholderText("name@example.com");
@@ -204,7 +205,7 @@ FraqtiveMainWindow::FraqtiveMainWindow()
     m_sendEmail_widget->setGeometry(rec.width()-250,rec.height()-150,220,120);
     m_sendEmail_widget->show();
     m_smtpClient=nullptr;
-
+*/
     //----------
     setTitle( "sectionFile", tr( "File" ) );
     setTitle( "sectionEdit", tr( "Edit" ) );
@@ -319,10 +320,12 @@ void FraqtiveMainWindow::nextBookmark()
         m_model->setParameters( bookmark.fractalType(), bookmark.position() );
     }
 }
-QString FraqtiveMainWindow::generateImageName( )
+QString FraqtiveMainWindow::generateImageName(int id )
 {
     QString path = QDir::tempPath();
     QString name;
+    name.append(QString::number(id));
+    name.append("_");
     name.append(QString::number(QDate::currentDate().year()));
     name.append("_");
     name.append(QString::number(QDate::currentDate().month()));
@@ -330,95 +333,92 @@ QString FraqtiveMainWindow::generateImageName( )
     name.append(QString::number(QDate::currentDate().day()));
     name.append("_");
     QString time= QTime::currentTime().toString();
-
     name.append(time);
     name.append(".png");
     name.replace(":","_");
     QString fileName = QFileInfo( QDir( path ), name ).absoluteFilePath();
     return fileName;
 }
-void FraqtiveMainWindow::sendEmailRequested()
+void FraqtiveMainWindow::processFractal(int id)
 {
 
-    if(!m_sendEmail_lineEdit->text().isEmpty())
+
+    //qDebug()<<"pred"<<m_printImageDialog->isActiveWindow()<<m_printImageDialog->isTopLevel()<<m_printImageDialog->isEnabled()<<;
+    if (!m_printImageDialog->isVisible() && m_isPreviousPrintDone&& m_printImageDialog->exec() == QDialog::Accepted )
     {
+        m_isPreviousPrintDone=false;
+        //!m_printImageDialog.isActiveWindow() &&
+        //  qDebug()<<"po"<<m_printImageDialog->isActiveWindow()<<m_printImageDialog->isTopLevel()<<m_printImageDialog->isEnabled()<<m_printImageDialog->isVisible();
+        QString fileName = generateImageName(id);
 
-        PrintImageDialog dialog( this );
+        ImageGenerator generator( this );
+        generator.setResolution( m_printImageDialog->resolution() * ( 1 << m_printImageDialog->multiSampling() ) );
+        generator.setParameters( m_model->fractalType(), m_model->position() );
+        generator.setColorSettings( m_model->gradient(), m_model->backgroundColor(), m_model->colorMapping() );
+        generator.setGeneratorSettings( m_printImageDialog->generatorSettings() );
+        generator.setViewSettings( m_printImageDialog->viewSettings() );
 
-        if ( dialog.exec() == QDialog::Accepted )
+        QProgressDialog progress( this );
+        progress.setWindowModality( Qt::WindowModal );
+        progress.setRange( 0, generator.maximumProgress() );
+        progress.setWindowTitle( tr( "Generate Image" ) );
+        progress.setLabelText( tr( "Calculating..." ) );
+        progress.setValue( 0 );
+
+        progress.setFixedHeight( progress.sizeHint().height() );
+        progress.resize( 300, progress.height() );
+
+        QEventLoop eventLoop;
+
+        connect( &generator, SIGNAL( progressChanged( int ) ), &progress, SLOT( setValue( int ) ), Qt::QueuedConnection );
+        connect( &generator, SIGNAL( completed() ), &eventLoop, SLOT( quit() ), Qt::QueuedConnection );
+        connect( &progress, SIGNAL( canceled() ), &eventLoop, SLOT( quit() ) );
+
+        if ( !generator.start() ) {
+            QMessageBox::warning( this, tr( "Error" ), tr( "Not enough memory to generate image." ) );
+            m_isPreviousPrintDone=true;
+            return;
+        }
+
+        eventLoop.exec();
+
+        if ( !progress.wasCanceled() )
         {
+            QImage image = generator.takeImage();
 
-            QString fileName = generateImageName();
+            for ( int i = 0; i < m_printImageDialog->multiSampling(); i++ )
+                image = image.scaledToWidth( image.width() / 2, Qt::SmoothTransformation );
+            QByteArray format;
+            QImageWriter* writer = createImageWriter( fileName, format );
 
-            if ( !fileName.isEmpty() )
+            if ( !writer->write( image ) )
             {
-                ImageGenerator generator( this );
-                generator.setResolution( dialog.resolution() * ( 1 << dialog.multiSampling() ) );
-                generator.setParameters( m_model->fractalType(), m_model->position() );
-                generator.setColorSettings( m_model->gradient(), m_model->backgroundColor(), m_model->colorMapping() );
-                generator.setGeneratorSettings( dialog.generatorSettings() );
-                generator.setViewSettings( dialog.viewSettings() );
+                QLogger::QLog_Error("main","File could not be saved, probably bad temp, privilages or no space on hdd");
+                delete writer;
+            }
+            else
+            {
+                delete writer;
+                FtpUploader ftp(m_ftp_username,m_ftp_password,m_ftp_server,m_ftp_port,this);
+                //connect(&ftp,SIGNAL(uploadSucess(bool)),this,SLOT(sendEmail(bool)));
+                QFileInfo finfo(fileName);
+                qDebug()<<finfo.fileName();
+                //qDebug()<<QString::number(QDate::currentDate().month());
+                m_urlFileName="ftp://"+m_ftp_server+"/"+finfo.fileName();
+                ftp.uploadFile(fileName,m_urlFileName);
+                QLogger::QLog_Info("main",m_urlFileName);
+                qDebug()<<m_urlFileName;
+                //by the following bracket resources are free and file can be deleted
+            }
+            QFile a(fileName);
+            if(a.exists() && !a.remove())
+            {
+                qDebug()<<a.errorString();
+                QLogger::QLog_Error("main","could not delete the temp file"+a.errorString());
 
-                QProgressDialog progress( this );
-                progress.setWindowModality( Qt::WindowModal );
-                progress.setRange( 0, generator.maximumProgress() );
-                progress.setWindowTitle( tr( "Generate Image" ) );
-                progress.setLabelText( tr( "Calculating..." ) );
-                progress.setValue( 0 );
-
-                progress.setFixedHeight( progress.sizeHint().height() );
-                progress.resize( 300, progress.height() );
-
-                QEventLoop eventLoop;
-
-                connect( &generator, SIGNAL( progressChanged( int ) ), &progress, SLOT( setValue( int ) ), Qt::QueuedConnection );
-                connect( &generator, SIGNAL( completed() ), &eventLoop, SLOT( quit() ), Qt::QueuedConnection );
-                connect( &progress, SIGNAL( canceled() ), &eventLoop, SLOT( quit() ) );
-
-                if ( !generator.start() ) {
-                    QMessageBox::warning( this, tr( "Error" ), tr( "Not enough memory to generate image." ) );
-                    return;
-                }
-
-                eventLoop.exec();
-
-                if ( !progress.wasCanceled() ) {
-                    QImage image = generator.takeImage();
-
-                    for ( int i = 0; i < dialog.multiSampling(); i++ )
-                        image = image.scaledToWidth( image.width() / 2, Qt::SmoothTransformation );
-                    QByteArray format;
-                    QImageWriter* writer = createImageWriter( fileName, format );
-
-                    if ( !writer->write( image ) )
-                    {
-                        QLogger::QLog_Error("main","File could not be saved, probably bad temp, privilages or no space on hdd");
-                        delete writer;
-                    }
-                    else
-                    {
-                        delete writer;
-                        FtpUploader ftp(m_ftp_username,m_ftp_password,m_ftp_server,m_ftp_port,this);
-                        //connect(&ftp,SIGNAL(uploadSucess(bool)),this,SLOT(sendEmail(bool)));
-                        QFileInfo finfo(fileName);
-                        qDebug()<<finfo.fileName();
-                        //qDebug()<<QString::number(QDate::currentDate().month());
-                        m_urlFileName="ftp://"+m_ftp_server+"/"+finfo.fileName();
-                        ftp.uploadFile(fileName,m_urlFileName);
-                        QLogger::QLog_Info("main",m_urlFileName);
-                        qDebug()<<m_urlFileName;
-                        //by the following bracket resources are free and file can be deleted
-                    }
-                    QFile a(fileName);
-                    if(a.exists() && !a.remove())
-                    {
-                        qDebug()<<a.errorString();
-                        QLogger::QLog_Error("main","could not delete the temp file"+a.errorString());
-
-                    }
-                }
             }
         }
+        m_isPreviousPrintDone=true;
     }
 }
 /*
@@ -505,6 +505,7 @@ void FraqtiveMainWindow::sendEmail(bool b)
 }*/
 void FraqtiveMainWindow::closeEvent( QCloseEvent* e )
 {
+    emit finished();
     e->accept();
 
     if ( isFullScreenMode() )

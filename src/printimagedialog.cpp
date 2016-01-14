@@ -54,6 +54,7 @@ PrintImageDialog::PrintImageDialog( QWidget* parent ) : QDialog( parent ),
 
     m_ui.spinWidth->setMaximum( width  );
     m_ui.spinHeight->setMaximum( height );
+
 }
 
 PrintImageDialog::~PrintImageDialog()

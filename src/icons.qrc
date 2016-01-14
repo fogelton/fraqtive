@@ -1,5 +1,5 @@
 <RCC>
-    <qresource>
+    <qresource prefix="/">
         <file>icons/about-16.png</file>
         <file>icons/arrows-16.png</file>
         <file>icons/back-16.png</file>
@@ -47,5 +47,9 @@
         <file>icons/view3d-16.png</file>
         <file>icons/view3d-22.png</file>
         <file>icons/web-16.png</file>
+        <file>icons/camera.png</file>
+        <file>icons/flash.png</file>
+        <file>icons/zoomIn.png</file>
+        <file>icons/zoomOut.png</file>
     </qresource>
 </RCC>

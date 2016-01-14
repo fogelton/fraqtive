@@ -25,8 +25,9 @@
 #include "ui_fraqtivemainwindow.h"
 #include "xmlui/client.h"
 #include "QLogger.h"
-#include "smtpclient.h"
+//#include "smtpclient.h"
 #include "ftpuploader.h"
+#include "printimagedialog.h"
 class FractalModel;
 class Gradient;
 
@@ -39,17 +40,20 @@ public:
 
 public: // overrides
     bool eventFilter( QObject* watched, QEvent* e );
-
+public slots:
+    void processFractal(int id);
+signals:
+    void finished();
 protected: // overrides
     void closeEvent( QCloseEvent* e );
 
 private slots:
-    void sendEmailRequested();
+
     void reverseGradient();
     void nextBookmark();
     void previousBookmark();
-   // void sendEmail(bool b);
-   // void mailSent(bool b);
+    // void sendEmail(bool b);
+    // void mailSent(bool b);
 
     void fractalType();
     void editGradient();
@@ -78,7 +82,7 @@ private slots:
 private:
     QString getEmailSubject(QString path);
     QString getEmailText(QString url, QString path);
-    QString generateImageName();
+    QString generateImageName(int id);
 
     bool isFullScreenMode() const;
     void enterFullScreenMode();
@@ -94,16 +98,16 @@ private:
 
 private:
     QLogger::QLoggerManager *m_log_manager;
-    SmtpClient* m_smtpClient;
+  //  SmtpClient* m_smtpClient;
 
-    QString m_pathToEmailTextFile="./email.txt";
-    QString m_body,m_greetings;
-    QString m_signature;
-    QString m_subject;
-  //  QString m_smtp_username;
-  //  QString m_smtp_password;
-  //  int m_smtp_port;
-  //  QString m_smtp_server;
+  //  QString m_pathToEmailTextFile="./email.txt";
+  //  QString m_body,m_greetings;
+  //  QString m_signature;
+  //  QString m_subject;
+    //  QString m_smtp_username;
+    //  QString m_smtp_password;
+    //  int m_smtp_port;
+    //  QString m_smtp_server;
     QString m_fileName,m_urlFileName;
     QString m_ftp_username;
     QString m_ftp_password;
@@ -111,11 +115,12 @@ private:
     QString m_ftp_server;
     int m_bookmarkID=0;
 
-    QWidget *m_sendEmail_widget;
-    QPushButton *m_sendEmail_button;
-    QLineEdit *m_sendEmail_lineEdit;
+  //  QWidget *m_sendEmail_widget;
+  //  QPushButton *m_sendEmail_button;
+  //  QLineEdit *m_sendEmail_lineEdit;
 
-
+PrintImageDialog *m_printImageDialog;
+bool m_isPreviousPrintDone=true;
     Ui::FraqtiveMainWindow m_ui;
 
     FractalModel* m_model;

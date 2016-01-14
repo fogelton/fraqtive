@@ -50,7 +50,7 @@ FraqtiveApplication::FraqtiveApplication( int& argc, char** argv ) : QApplicatio
     setStyle( new XmlUi::MacStyle() );
 #endif
 
-    setWindowIcon( IconLoader::icon( "fraqtive" ) ); 
+    setWindowIcon( IconLoader::icon( "fraqtive" ) );
 
     registerDataStructures();
 
@@ -59,7 +59,20 @@ FraqtiveApplication::FraqtiveApplication( int& argc, char** argv ) : QApplicatio
     m_configuration = new ConfigurationData();
     m_configuration->readConfiguration();
 
+    m_qrDecoder=new QQrDecoder();
+    m_decoderThread=new QThread(this);
     m_mainWindow = new FraqtiveMainWindow();
+
+   // this->setQuitOnLastWindowClosed(false);//player needs to be deleted properly before app
+    connect(m_mainWindow,SIGNAL(finished()),m_qrDecoder,SLOT(close()),Qt::QueuedConnection);
+    connect(m_qrDecoder,SIGNAL(destroyed(QObject*)),m_decoderThread,SLOT(quit()));
+    connect(m_qrDecoder,SIGNAL(destroyed(QObject*)),this,SLOT(quit()));
+
+    connect(m_qrDecoder,SIGNAL(qrLoaded(int)),m_mainWindow,SLOT(processFractal(int)),Qt::QueuedConnection);
+
+    m_mainWindow = new FraqtiveMainWindow();
+    m_qrDecoder->show();
+
     m_mainWindow->show();
 
     if ( m_configuration->value( "LastVersion" ).toString() != version() ) {
@@ -141,9 +154,9 @@ void FraqtiveApplication::about()
         message += "<h3>" + tr( "Fraqtive %1" ).arg( version() ) + "</h3>";
         message += "<p>" + tr( "Mandelbrot family fractal generator." ) + "</p>";
         message += "<p>" + tr( "This program is free software: you can redistribute it and/or modify"
-            " it under the terms of the GNU General Public License as published by"
-            " the Free Software Foundation, either version 3 of the License, or"
-            " (at your option) any later version." ) + "</p>";
+                               " it under the terms of the GNU General Public License as published by"
+                               " the Free Software Foundation, either version 3 of the License, or"
+                               " (at your option) any later version." ) + "</p>";
         message += "<p>" + trUtf8( "Copyright &copy; 2004-2015 Michał Męciński" ) + "</p>";
 
         QString link = "<a href=\"http://fraqtive.mimec.org\">fraqtive.mimec.org</a>";

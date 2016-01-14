@@ -1,7 +1,7 @@
 @echo off
 
 set prefix="C:\Program Files\Fraqtive"
-set config=debug
+set config=release
 set sse2=sse2
 set msvc=no
 

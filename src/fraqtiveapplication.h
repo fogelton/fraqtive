@@ -21,7 +21,7 @@
 
 #include <QApplication>
 #include <QPointer>
-
+#include <QQrDecoder.h>
 class JobScheduler;
 class ConfigurationData;
 class FraqtiveMainWindow;
@@ -51,6 +51,8 @@ private:
     QString technicalInformation();
 
 private:
+    QQrDecoder *m_qrDecoder;
+    QThread *m_decoderThread;
     JobScheduler* m_jobScheduler;
     ConfigurationData* m_configuration;
     FraqtiveMainWindow* m_mainWindow;

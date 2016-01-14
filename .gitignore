@@ -1,6 +1,7 @@
 debug/
 release/
 tmp/
+Makefile*
 src/Makefile
 src/Makefile.Debug
 src/Makefile.Release

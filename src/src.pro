@@ -3,8 +3,8 @@ include( ../config.pri )
 TEMPLATE = app
 TARGET = fraqtive
 
-QT += opengl xml network
-
+QT += opengl xml network core gui multimedia widgets
+include(../qzxing/QZXing.pri)
 HEADERS   += aboutbox.h \
              abstractjobprovider.h \
              abstractview.h \
@@ -52,7 +52,11 @@ HEADERS   += aboutbox.h \
     ftpuploader.h \
     QLogger.h \
  #   smtpclient.h \
-    printimagedialog.h
+    printimagedialog.h\
+    QQrDecoder.h \
+    QCameraControllerWidget.h \
+    button.h \
+    myvideosurface.h
 
 SOURCES   += aboutbox.cpp \
              advancedsettingspage.cpp \
@@ -99,7 +103,11 @@ SOURCES   += aboutbox.cpp \
     ftpuploader.cpp \
     QLogger.cpp \
  #   smtpclient.cpp \
-    printimagedialog.cpp
+    printimagedialog.cpp\
+     QQrDecoder.cpp \
+    QCameraControllerWidget.cpp \
+    button.cpp \
+    myvideosurface.cpp
 
 FORMS     += advancedsettingspage.ui \
              animationpage.ui \
@@ -117,7 +125,8 @@ FORMS     += advancedsettingspage.ui \
              renamedialog.ui \
              savebookmarkdialog.ui \
              savepresetdialog.ui \
-    printimagedialog.ui
+    printimagedialog.ui\
+     QQrDecoder.ui
 
 RESOURCES += data.qrc \
              icons.qrc \
