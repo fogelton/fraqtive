@@ -93,15 +93,11 @@ QCameraControllerWidget::QCameraControllerWidget(QWidget *parent) :
     m_stackedWidget->addWidget(secondWidget);
     m_stackedWidget->setCurrentIndex(0);
 
-
     // Buttons
     QSize iconSize(80, 80);
     QVBoxLayout* vboxl = new QVBoxLayout;
     vboxl->setSpacing(0);
     vboxl->setMargin(0);
-
-
-
 
     zoomIn = new Button(this);
     QObject::connect(zoomIn, SIGNAL(pressed()), this, SLOT(onZoomIn()));
@@ -164,41 +160,45 @@ QCameraControllerWidget::~QCameraControllerWidget()
 
 void QCameraControllerWidget::enableCamera()
 {
+    try{
+        //QVideoFrame::Format_UYVY;
+        m_camera = new QCamera();
+        m_camera->setCaptureMode(QCamera::CaptureStillImage);
+        connect(m_camera, SIGNAL(error(QCamera::Error)), this, SLOT(error(QCamera::Error)));
+        connect(m_camera, SIGNAL(lockStatusChanged(QCamera::LockStatus,QCamera::LockChangeReason)), this, SLOT(lockStatusChanged(QCamera::LockStatus,QCamera::LockChangeReason)));
+        connect(m_camera, SIGNAL(stateChanged( QCamera::State) ), this, SLOT(onStateChanged(QCamera::State)));
 
-    //QVideoFrame::Format_UYVY;
-    m_camera = new QCamera();
-    m_camera->setCaptureMode(QCamera::CaptureStillImage);
-    connect(m_camera, SIGNAL(error(QCamera::Error)), this, SLOT(error(QCamera::Error)));
-    connect(m_camera, SIGNAL(lockStatusChanged(QCamera::LockStatus,QCamera::LockChangeReason)), this, SLOT(lockStatusChanged(QCamera::LockStatus,QCamera::LockChangeReason)));
-    connect(m_camera, SIGNAL(stateChanged( QCamera::State) ), this, SLOT(onStateChanged(QCamera::State)));
+        // Own video output drawing that shows camera view finder pictures
+        //! [0]
+        QMediaService* ms = m_camera->service();
 
-    // Own video output drawing that shows camera view finder pictures
-    //! [0]
-    QMediaService* ms = m_camera->service();
-    QVideoRendererControl* vrc = ms->requestControl<QVideoRendererControl*>();
-    m_myVideoSurface = new MyVideoSurface(this,this,this);
-    vrc->setSurface(m_myVideoSurface);
+        QVideoRendererControl* vrc = ms->requestControl<QVideoRendererControl*>();
+        m_myVideoSurface = new MyVideoSurface(this,this,this);
 
-    connect(m_myVideoSurface, SIGNAL(imageCaptured(QImage)), this, SLOT(redirectImageSignalFromVideoFinder(QImage)));
+        vrc->setSurface(m_myVideoSurface);
 
-    //! [0]
-    // Image capturer
-    m_stillImageCapture = new QCameraImageCapture(m_camera);
-    connect(m_stillImageCapture, SIGNAL(imageCaptured(int,QImage)), this, SLOT(onImageCaptured(int,QImage)));
+        connect(m_myVideoSurface, SIGNAL(imageCaptured(QImage)), this, SLOT(redirectImageSignalFromVideoFinder(QImage)));
 
-    // Start camera
-    if (m_camera->state() == QCamera::ActiveState) {
-        m_camera->stop();
-    }
-    m_videoWidget->show();
-    m_camera->start();
-    showViewFinder = true;
+        //! [0]
+        // Image capturer
+        m_stillImageCapture = new QCameraImageCapture(m_camera);
 
-    cameraFocus = m_camera->focus();
+        connect(m_stillImageCapture, SIGNAL(imageCaptured(int,QImage)), this, SLOT(onImageCaptured(int,QImage)));
 
-    timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(searchAndLock()));
-    timer->start(500);
+        // Start camera
+        if (m_camera->state() == QCamera::ActiveState) {
+            m_camera->stop();
+        }
+        m_videoWidget->show();
+        m_camera->start();
+        showViewFinder = true;
+
+        cameraFocus = m_camera->focus();
+
+        timer = new QTimer(this);
+        connect(timer, SIGNAL(timeout()), this, SLOT(searchAndLock()));
+        timer->start(500);}
+    catch(int e){}
 }
 
 void QCameraControllerWidget::mousePressEvent(QMouseEvent *event)
@@ -220,29 +220,33 @@ void QCameraControllerWidget::searchAndLock()
     m_focusing = false;
     m_focusMessage.clear();
 
-    if (pictureCaptured) {
-        // Starting view finder again
-        pictureCaptured = false;
-        m_stackedWidget->setCurrentIndex(0);
-        if (m_myVideoSurface) {
-            showViewFinder = true;
+    try{
+        if (pictureCaptured) {
+            // Starting view finder again
+            pictureCaptured = false;
+            m_stackedWidget->setCurrentIndex(0);
+            if (m_myVideoSurface) {
+                showViewFinder = true;
+            }
+        }
+        else {
+            // Search and lock picture (=focus)
+            if (m_camera->supportedLocks() & QCamera::LockFocus) {
+                m_focusing = true;
+                m_focusMessage = "Focusing...";
+                m_camera->searchAndLock(QCamera::LockFocus);
+            } else {
+                // No focus functionality, take picture right away
+                captureImage();
+            }
         }
     }
-    else {
-        // Search and lock picture (=focus)
-        if (m_camera->supportedLocks() & QCamera::LockFocus) {
-            m_focusing = true;
-            m_focusMessage = "Focusing...";
-            m_camera->searchAndLock(QCamera::LockFocus);
-        } else {
-            // No focus functionality, take picture right away
-            captureImage();
-        }
-    }
+    catch(int e){}
 }
 
 void QCameraControllerWidget::lockStatusChanged(QCamera::LockStatus status, QCamera::LockChangeReason reason)
 {
+    try{
     if (status == QCamera::Locked) {
         if (reason == QCamera::LockAcquired) {
             // Focus locked
@@ -258,11 +262,13 @@ void QCameraControllerWidget::lockStatusChanged(QCamera::LockStatus status, QCam
         }
     } else if (status == QCamera::Unlocked && m_focusing) {
         m_focusMessage = "No focus, try again";
-    }
+    }}
+    catch(int e){}
 }
 
 void QCameraControllerWidget::captureImage()
 {
+    try{
     if (pictureCaptured) {
         // Starting view finder again
         pictureCaptured = false;
@@ -272,18 +278,7 @@ void QCameraControllerWidget::captureImage()
     else {
         // Capturing image
         showViewFinder = false;
-        // Get picture location where to store captured images
-//        QString path(QDesktopServices::storageLocation(QDesktopServices::PicturesLocation));
-//        QDir dir(path);
 
-        // Get next filename
-//        QStringList files = dir.entryList(QStringList() << "camera");//_*.jpg");
-//        int lastImage = 0;
-//        foreach ( QString fileName, files ) {
-//            int imgNumber = fileName.mid(7, fileName.size() - 11).toInt();
-//            lastImage = qMax(lastImage, imgNumber);
-//        }
-        // Capture image
         if (m_stillImageCapture->isReadyForCapture()) {
             m_imageName = QString("camera_0");//%1.jpg").arg(lastImage+1);
             m_stillImageCapture->capture(m_imageName);
@@ -291,16 +286,19 @@ void QCameraControllerWidget::captureImage()
     }
 
     m_camera->unlock();
+    }
+    catch(int e){}
 }
 
 void QCameraControllerWidget::onImageCaptured(int id, const QImage &preview)
 {
     Q_UNUSED(id);
- //   m_stillImageCapture->cancelCapture();
-//    showViewFinder = false;
+    //   m_stillImageCapture->cancelCapture();
+    //    showViewFinder = false;
     m_focusing = false;
     pictureCaptured = true;
     captureImage(); // added this line to restart viewfinder
+
     emit imageCaptured(preview);
     //qdebug() << "Image sent for decoding";
 }
@@ -321,13 +319,13 @@ void QCameraControllerWidget::deleteImage(const QString & folderPath)
             pathDir.remove(image);
             //qdebug() << "file deleted: " << image;
 
-    //        QStringList filters;
-    //            filters << "*.cpp" << "*.cxx" << "*.cc";
-    //            dir.setNameFilters(filters);
+            //        QStringList filters;
+            //            filters << "*.cpp" << "*.cxx" << "*.cc";
+            //            dir.setNameFilters(filters);
         }
-//        QMessageBox msgBox;
-//        msgBox.setText(image);
-//        msgBox.exec();
+        //        QMessageBox msgBox;
+        //        msgBox.setText(image);
+        //        msgBox.exec();
     }
 }
 

@@ -1,5 +1,5 @@
 #include "myvideosurface.h"
-
+#include <QImage>
 MyVideoSurface::MyVideoSurface(QWidget* widget, VideoIF* target, QObject* parent)
     : QAbstractVideoSurface(parent)
 {
@@ -31,12 +31,13 @@ bool MyVideoSurface::start(const QVideoSurfaceFormat &format)
 void MyVideoSurface::sendImageToDecode()
 {
     if (m_frame.map(QAbstractVideoBuffer::ReadOnly)) {
+
         QImage image(
-                m_frame.bits(),
-                m_frame.width(),
-                m_frame.height(),
-                m_frame.bytesPerLine(),
-                m_imageFormat);
+                    m_frame.bits(),
+                    m_frame.width(),
+                    m_frame.height(),
+                    m_frame.bytesPerLine(),
+                    m_imageFormat);
 
         if (!image.isNull())
             emit imageCaptured(image);
@@ -58,29 +59,32 @@ bool MyVideoSurface::present(const QVideoFrame &frame)
 }
 
 void MyVideoSurface::paint(QPainter *painter)
- {
-     if (m_frame.map(QAbstractVideoBuffer::ReadOnly)) {
-         QImage image(
-                 m_frame.bits(),
-                 m_frame.width(),
-                 m_frame.height(),
-                 m_frame.bytesPerLine(),
-                 m_imageFormat);
+{
+    if (m_frame.map(QAbstractVideoBuffer::ReadOnly)) {
+        QImage image(
+                    m_frame.bits(),
+                    m_frame.width(),
+                    m_frame.height(),
+                    m_frame.bytesPerLine(),
+                    m_imageFormat);
 
-         QRect r = m_targetWidget->rect();
-         QPoint centerPic((qAbs(r.size().width() - image.size().width())) / 2, (qAbs(
-             r.size().height() - image.size().height())) / 2);
+        QRect r = m_targetWidget->rect();
+        QPoint centerPic((qAbs(r.size().width() - image.size().width())) / 2, (qAbs(
+                                                                                   r.size().height() - image.size().height())) / 2);
 
-         if (!image.isNull()) {
+        if (!image.isNull()) {
+
+            painter->scale(1,-1);
+            painter->translate(0,-image.height()-100);//image.width(),image.height());
             painter->drawImage(centerPic,image);
-         }
+        }
 
-         m_frame.unmap();
-     }
- }
+        m_frame.unmap();
+    }
+}
 
 QList<QVideoFrame::PixelFormat> MyVideoSurface::supportedPixelFormats(
-            QAbstractVideoBuffer::HandleType handleType) const
+        QAbstractVideoBuffer::HandleType handleType) const
 {
     if (handleType == QAbstractVideoBuffer::NoHandle) {
         return QList<QVideoFrame::PixelFormat>()

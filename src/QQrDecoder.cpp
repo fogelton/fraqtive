@@ -42,8 +42,8 @@ QQrDecoder::QQrDecoder(QWidget *parent): QMainWindow(parent), decoder(QZXing::De
     ui.setupUi(this);
     connect(ui.centralwidget, SIGNAL(imageCaptured(QImage)), this, SLOT(decodeImage(QImage)));
     connect(&decoder, SIGNAL(tagFound(QString)), this, SLOT(reportTagFound(QString)));
-	
-	//by default all decoders available are enabled
+
+    //by default all decoders available are enabled
     decoder.setDecoder( QZXing::DecoderFormat_QR_CODE);
     //decoder.setDecoder( QZXing::DecoderFormat_Aztec );
 }
@@ -55,7 +55,13 @@ QQrDecoder::~QQrDecoder()
 void QQrDecoder::decodeImage(QImage originalImage)
 {
     //qDebug() << "Start of decoding";
-    qDebug()<<decoder.decodeImage(originalImage,640, 640, false);
+    try{
+        decoder.decodeImage(originalImage,640, 640, false);
+    }catch(int e)
+    {
+        qDebug()<<"exception"<<e;
+    }
+
     //qDebug() << "End of decoding";
 
     ui.retranslateUi(this);
