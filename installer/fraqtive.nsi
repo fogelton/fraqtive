@@ -200,6 +200,7 @@ Section
     File "${QTDIR}\bin\Qt5Widgets.dll"
     File "${QTDIR}\bin\Qt5Xml.dll"
     File "${QTDIR}\bin\Qt5Network.dll"
+    File "${QTDIR}\bin\Qt5Multimedia.dll"
     
     File "${SSL_DIR}\libeay32.dll"
     File "${SSL_DIR}\ssleay32.dll"
