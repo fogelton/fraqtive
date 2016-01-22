@@ -179,9 +179,9 @@ int Detector::computeDimension(Ref<ResultPoint> topLeft, Ref<ResultPoint> topRig
     dimension--;
     break;
   case 3:
-    ostringstream s;
-    s << "Bad dimension: " << dimension;
-    throw zxing::ReaderException(s.str().c_str());
+    //ostringstream s;
+    qDebug() << "Bad dimension: " << dimension;
+  //  throw zxing::ReaderException(s.str().c_str());
   }
   return dimension;
 }

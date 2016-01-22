@@ -54,15 +54,8 @@ QQrDecoder::~QQrDecoder()
 
 void QQrDecoder::decodeImage(QImage originalImage)
 {
-    //qDebug() << "Start of decoding";
-    try{
-        decoder.decodeImage(originalImage,640, 640, false);
-    }catch(int e)
-    {
-        qDebug()<<"exception"<<e;
-    }
 
-    //qDebug() << "End of decoding";
+        decoder.decodeImage(originalImage,640, 640, false);
 
     ui.retranslateUi(this);
 }

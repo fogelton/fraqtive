@@ -27,16 +27,18 @@
 
 !include "languages\fraqtive_en.nsh"
 
+SetCompress off
+
 !ifdef INNER
-    SetCompress off
+    
 
     OutFile "$%TEMP%\innerinst.exe"
 !else
     !verbose 4
     
-    SetCompressor /SOLID lzma
+  #  !SetCompressor /SOLID lzma
     
-    SetCompressorDictSize 32
+   # !SetCompressorDictSize 32
 
     OutFile "fraqtive-${VERSION}-${ARCHITECTURE}.exe"
 !endif
@@ -182,7 +184,6 @@ Section
     Delete "$INSTDIR\bin\*.*"
     
     File "${SRCDIR}\config.ini"
-    File "${SRCDIR}\email.txt"
 
     File "${BUILDDIR}\fraqtive.exe"
     File "${BUILDDIR}\FraqtiveKinectAdapter.exe"
@@ -192,8 +193,6 @@ Section
 
     File "${VCRTDIR}\msvcp120.dll"
     File "${VCRTDIR}\msvcr120.dll"
-
-    File "qt.conf"
 
     File "${QTDIR}\bin\Qt5Core.dll"
     File "${QTDIR}\bin\Qt5Gui.dll"
@@ -205,12 +204,12 @@ Section
     File "${SSL_DIR}\libeay32.dll"
     File "${SSL_DIR}\ssleay32.dll"
 
-    SetOutPath "$INSTDIR\plugins\imageformats"
+    SetOutPath "$INSTDIR\bin\imageformats"
 
     File "${QTDIR}\plugins\imageformats\qjpeg.dll"
     File "${QTDIR}\plugins\imageformats\qtiff.dll"
 
-    SetOutPath "$INSTDIR\plugins\platforms"
+    SetOutPath "$INSTDIR\bin\platforms"
 
     File "${QTDIR}\plugins\platforms\qwindows.dll"
 

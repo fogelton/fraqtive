@@ -1,28 +1,9 @@
 @echo off
-
-if "%1" == "" goto usage
-
 set VERSION=0.4.8
 set BUILDVERSION=0.4.8.5508
 
 set NSISDIR=C:\Program Files (x86)\NSIS
-
-if not %1 == x86 goto elsex64
-
-set BUILDDIR=D:\Release\fraqtive-x86
-
-set QTDIR=C:\Qt5\x86
-set VCRTDIR=C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\redist\x86\Microsoft.VC120.CRT
-
-set ARCHITECTURE=win_x86
-set SUFFIX=
-
-goto endopt
-:elsex64
-
-if not %1 == x64 goto usage
-
-set BUILDDIR=d:\git\fraqtive\
+set BUILDDIR=c:\git\fraqtive\
 
 set QTDIR=C:\Qt\5.5\msvc2013_64
 set VCRTDIR=C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\redist\x64\Microsoft.VC120.CRT
@@ -30,32 +11,9 @@ set path=%path%;C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin;%QTBI
 set ARCHITECTURE=win_x64
 set SUFFIX= (64-bit)
 
-goto endopt
-:usage
-
-echo usage: build.bat x86^|x64
-
-goto :eof
-:endopt
-
-echo exe files have to be precompiled qtvars.bat are missing!!!!!!!!!!!!!!!!!!!!!!!
-::call "%QTDIR%\bin\qtvars.bat" vsvars
-
-if not exist "%BUILDDIR%" mkdir "%BUILDDIR%"
-
-::echo.
-::echo Exporting...
-::echo.
-
-::svn export --quiet --force .. "%BUILDDIR%"
 
 pushd "%BUILDDIR%"
 
-call configure.bat
-
-nmake release
-
-if errorlevel 1 goto cleanup
 
 call sign.bat release\FraqtiveKinectAdapter.exe
 call sign.bat release\fraqtive.exe
@@ -82,7 +40,6 @@ if errorlevel 1 goto cleanup
 
 call sign.bat "installer\fraqtive-%VERSION%-%ARCHITECTURE%.exe"
 
-if not %1 == x86 goto cleanup
 
 :cleanup
 

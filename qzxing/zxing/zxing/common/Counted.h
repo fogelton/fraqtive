@@ -25,7 +25,7 @@ namespace zxing {
 /* base class for reference-counted objects */
 class Counted {
 private:
-  unsigned int count_;
+  unsigned int count_=0;
 public:
   Counted() :
       count_(0) {
