@@ -210,6 +210,12 @@ Section
     File "${QTDIR}\plugins\imageformats\qjpeg.dll"
     File "${QTDIR}\plugins\imageformats\qtiff.dll"
 
+SetOutPath "$INSTDIR\bin\mediaservice"
+
+    File "${QTDIR}\plugins\mediaservice\dsengine.dll"
+    File "${QTDIR}\plugins\mediaservice\wmfengine.dll"
+    File "${QTDIR}\plugins\mediaservice\qtmedia_audioengine.dll"
+
     SetOutPath "$INSTDIR\bin\platforms"
 
     File "${QTDIR}\plugins\platforms\qwindows.dll"

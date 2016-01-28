@@ -36,6 +36,7 @@
 #include <QPixmap>
 #include <QMessageBox>
 #include <QDebug>
+#include "zxing/ReaderException.h"
 
 QQrDecoder::QQrDecoder(QWidget *parent): QMainWindow(parent), decoder(QZXing::DecoderFormat_QR_CODE)
 {
@@ -54,9 +55,12 @@ QQrDecoder::~QQrDecoder()
 
 void QQrDecoder::decodeImage(QImage originalImage)
 {
-
+    try{
         decoder.decodeImage(originalImage,640, 640, false);
+    }catch (zxing::Exception e)
+    {
 
+    }
     ui.retranslateUi(this);
 }
 

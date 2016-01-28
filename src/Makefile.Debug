@@ -18,7 +18,7 @@ INCPATH       = -I. -I..\qzxing -I..\qzxing\zxing -I..\qzxing\zxing\win32\zxing 
 LINKER        = link
 LFLAGS        = /NOLOGO /DYNAMICBASE /NXCOMPAT /DEBUG /SUBSYSTEM:WINDOWS "/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'"
 LIBS          = /LIBPATH:C:\Qt\5.5\msvc2013_64\lib C:\Qt\5.5\msvc2013_64\lib\qtmaind.lib /LIBPATH:C:\Qt\5.5\msvc2013_64\lib C:\Qt\5.5\msvc2013_64\lib\Qt5Cored.lib /LIBPATH:c:\Dropbox\openssl1.0.2d\msvc2013_64 c:\Dropbox\openssl1.0.2d\msvc2013_64\libeay32.lib c:\Dropbox\openssl1.0.2d\msvc2013_64\ssleay32.lib glu32.lib opengl32.lib shell32.lib C:\Qt\5.5\msvc2013_64\lib\Qt5OpenGLd.lib C:\Qt\5.5\msvc2013_64\lib\Qt5Widgetsd.lib C:\Qt\5.5\msvc2013_64\lib\Qt5Multimediad.lib C:\Qt\5.5\msvc2013_64\lib\Qt5Quickd.lib C:\Qt\5.5\msvc2013_64\lib\Qt5Guid.lib C:\Qt\5.5\msvc2013_64\lib\Qt5Xmld.lib C:\Qt\5.5\msvc2013_64\lib\Qt5Qmld.lib C:\Qt\5.5\msvc2013_64\lib\Qt5Networkd.lib C:\Qt\5.5\msvc2013_64\lib\Qt5Cored.lib ..\tmp\debug\fraqtive.res 
-QMAKE         = c:\Qt\5.5\msvc2013_64\bin\qmake.exe
+QMAKE         = C:\Qt\5.5\msvc2013_64\bin\qmake.exe
 IDC           = idc
 IDL           = midl
 ZIP           = zip -r -9
@@ -1433,7 +1433,7 @@ $(OBJECTS) $(LIBS)
 	rc -D_DEBUG $(DEFINES) -fo ..\tmp\debug\fraqtive.res fraqtive.rc
 
 qmake: FORCE
-	@$(QMAKE) -o Makefile.Debug src.pro
+	@$(QMAKE) -spec win32-msvc2013 -o Makefile.Debug src.pro
 
 qmake_all: FORCE
 
@@ -25789,6 +25789,8 @@ debug\fraqtive_pch.obj: fraqtive_pch.h ..\..\..\Qt\5.5\msvc2013_64\include\QtCor
 		..\..\..\Qt\5.5\msvc2013_64\include\QtWidgets\QMessageBox \
 		..\..\..\Qt\5.5\msvc2013_64\include\QtWidgets\qmessagebox.h \
 		..\..\..\Qt\5.5\msvc2013_64\include\QtCore\QDebug \
+		../qzxing/zxing/zxing/ReaderException.h \
+		../qzxing/zxing/zxing/Exception.h \
 		debug\fraqtive_pch.obj
 
 ..\tmp\debug\QCameraControllerWidget.obj: QCameraControllerWidget.cpp QCameraControllerWidget.h \

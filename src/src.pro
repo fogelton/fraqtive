@@ -4,6 +4,8 @@ TEMPLATE = app
 TARGET = fraqtive
 
 QT += opengl xml network core gui multimedia widgets
+
+#CONFIG += console
 include(../qzxing/QZXing.pri)
 HEADERS   += aboutbox.h \
              abstractjobprovider.h \
