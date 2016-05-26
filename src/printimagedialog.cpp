@@ -63,6 +63,7 @@ PrintImageDialog::~PrintImageDialog()
 
 int PrintImageDialog::findTheBestSampling(QSize resolution)
 {
+return 0;
     int multiSampling=0;
 
     int maxWidth, maxHeight;

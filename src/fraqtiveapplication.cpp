@@ -70,10 +70,10 @@ FraqtiveApplication::FraqtiveApplication( int& argc, char** argv ) : QApplicatio
 
     connect(m_qrDecoder,SIGNAL(qrLoaded(int)),m_mainWindow,SLOT(processFractal(int)),Qt::QueuedConnection);
 
-    m_mainWindow = new FraqtiveMainWindow();
     m_qrDecoder->show();
 
     m_mainWindow->show();
+    m_mainWindow->fullScreen();
 
     if ( m_configuration->value( "LastVersion" ).toString() != version() ) {
         m_configuration->setValue( "LastVersion", version() );

@@ -141,19 +141,14 @@ FraqtiveMainWindow::FraqtiveMainWindow()
     m_log_manager->addDestination(QCoreApplication::applicationDirPath().append("/logs.log"),  QStringList("main"), QLogger::InfoLevel);
 
     QSettings settings(QCoreApplication::applicationDirPath().append("/config.ini"), QSettings::IniFormat);
-    /* settings.beginGroup("smtp");
-    m_smtp_username=settings.value("username").toString();
-    m_smtp_password=settings.value("password").toString();
-    m_smtp_server=settings.value("server").toString();
-    m_smtp_port=settings.value("port",465).toInt();
-    settings.endGroup();*/
+
     settings.beginGroup("ftp");
     m_ftp_username=settings.value("username").toString();
     m_ftp_password=settings.value("password").toString();
     m_ftp_server=settings.value("server").toString();
     m_ftp_port=settings.value("port",21).toInt();
     settings.endGroup();
-
+    //qDebug()<<m_ftp_password<<m_ftp_port<<m_ftp_server<<m_ftp_username;
     if(m_ftp_server.isEmpty())
     {
         QLogger::QLog_Error("main","Missing config.ini file.");
@@ -175,37 +170,7 @@ FraqtiveMainWindow::FraqtiveMainWindow()
     setAction( "reverseGradient", action );
 
     m_bookmarkID=-1;
-    m_printImageDialog =new PrintImageDialog(this);
-    /*
-    //setting up hte small widget sending email
-    m_sendEmail_widget = new QWidget(this,Qt::Tool | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
-    m_sendEmail_widget->setFocusPolicy(Qt::NoFocus);
-    m_sendEmail_widget->setAttribute(Qt::WA_ShowWithoutActivating);
-    m_sendEmail_widget->setAttribute(Qt::WA_TranslucentBackground);
 
-    QWidget *shadowWidget=new QWidget(m_sendEmail_widget);
-    shadowWidget->setGeometry(10,10,20,20);
-    shadowWidget->setMinimumSize(200,100);
-    shadowWidget->setStyleSheet(".QWidget{background:#f8f8f8;}");
-    QGraphicsDropShadowEffect *shadow = new QGraphicsDropShadowEffect(this);
-    shadow->setBlurRadius(10);
-    shadow->setOffset(1);
-
-    shadowWidget->setGraphicsEffect(shadow);
-    QVBoxLayout *vlay = new QVBoxLayout(shadowWidget);
-    m_sendEmail_button= new QPushButton("send fractal via email",shadowWidget);
-    QObject::connect(m_sendEmail_button,SIGNAL(clicked(bool)),this,SLOT(processFractal()));
-
-    m_sendEmail_lineEdit = new QLineEdit(shadowWidget);
-    m_sendEmail_lineEdit->setPlaceholderText("name@example.com");
-    vlay->addWidget(m_sendEmail_lineEdit);
-    vlay->addWidget(m_sendEmail_button);
-
-    QRect rec = QApplication::desktop()->screenGeometry();
-    m_sendEmail_widget->setGeometry(rec.width()-250,rec.height()-150,220,120);
-    m_sendEmail_widget->show();
-    m_smtpClient=nullptr;
-*/
     //----------
     setTitle( "sectionFile", tr( "File" ) );
     setTitle( "sectionEdit", tr( "Edit" ) );
@@ -341,32 +306,33 @@ QString FraqtiveMainWindow::generateImageName(int id )
 }
 void FraqtiveMainWindow::processFractal(int id)
 {
-
-
-    //qDebug()<<"pred"<<m_printImageDialog->isActiveWindow()<<m_printImageDialog->isTopLevel()<<m_printImageDialog->isEnabled()<<;
-    if (!m_printImageDialog->isVisible() && m_isPreviousPrintDone&& m_printImageDialog->exec() == QDialog::Accepted )
+    if (m_isPreviousPrintDone )
     {
         m_isPreviousPrintDone=false;
-        //!m_printImageDialog.isActiveWindow() &&
-        //  qDebug()<<"po"<<m_printImageDialog->isActiveWindow()<<m_printImageDialog->isTopLevel()<<m_printImageDialog->isEnabled()<<m_printImageDialog->isVisible();
         QString fileName = generateImageName(id);
-
-        ImageGenerator generator( this );
-        generator.setResolution( m_printImageDialog->resolution() * ( 1 << m_printImageDialog->multiSampling() ) );
+        ImageGenerator generator( this );//2   0
+        generator.setResolution( QSize(14032,9920));//m_printImageDialog->resolution() * ( 1 << m_printImageDialog->multiSampling() ) );
         generator.setParameters( m_model->fractalType(), m_model->position() );
         generator.setColorSettings( m_model->gradient(), m_model->backgroundColor(), m_model->colorMapping() );
-        generator.setGeneratorSettings( m_printImageDialog->generatorSettings() );
-        generator.setViewSettings( m_printImageDialog->viewSettings() );
+        GeneratorSettings gs;
+        gs.setCalculationDepth(4.0);
+        gs.setDetailThreshold(0.0);
+        generator.setGeneratorSettings( gs);//m_printImageDialog->generatorSettings() );
+        ViewSettings vs;//=fraqtive()->configuration()->value( "ImageViewSettings" ).value<ViewSettings>();
+        vs.setAntiAliasing(HighAntiAliasing);
+        generator.setViewSettings( vs);//m_printImageDialog->viewSettings() );
 
+        qDebug()<<"mysave"<<m_model->position().zoomFactor()<<m_model->position().angle()<<m_model->position().center();
         QProgressDialog progress( this );
         progress.setWindowModality( Qt::WindowModal );
         progress.setRange( 0, generator.maximumProgress() );
         progress.setWindowTitle( tr( "Generate Image" ) );
         progress.setLabelText( tr( "Calculating..." ) );
+        progress.setFixedHeight( progress.sizeHint().height() );
+        progress.resize( 800, progress.height() );
         progress.setValue( 0 );
 
-        progress.setFixedHeight( progress.sizeHint().height() );
-        progress.resize( 300, progress.height() );
+
 
         QEventLoop eventLoop;
 
@@ -375,7 +341,7 @@ void FraqtiveMainWindow::processFractal(int id)
         connect( &progress, SIGNAL( canceled() ), &eventLoop, SLOT( quit() ) );
 
         if ( !generator.start() ) {
-            QMessageBox::warning( this, tr( "Error" ), tr( "Not enough memory to generate image." ) );
+            QMessageBox::warning( this, tr( "Error" ), tr( "Not enough memory to generate image, contact support." ) );
             m_isPreviousPrintDone=true;
             return;
         }
@@ -386,19 +352,17 @@ void FraqtiveMainWindow::processFractal(int id)
         {
             QImage image = generator.takeImage();
 
-            for ( int i = 0; i < m_printImageDialog->multiSampling(); i++ )
-                image = image.scaledToWidth( image.width() / 2, Qt::SmoothTransformation );
             QByteArray format;
             QImageWriter* writer = createImageWriter( fileName, format );
 
             if ( !writer->write( image ) )
             {
                 QLogger::QLog_Error("main","File could not be saved, probably bad temp, privilages or no space on hdd");
-                delete writer;
+
             }
             else
             {
-                delete writer;
+
                 FtpUploader ftp(m_ftp_username,m_ftp_password,m_ftp_server,m_ftp_port,this);
                 //connect(&ftp,SIGNAL(uploadSucess(bool)),this,SLOT(sendEmail(bool)));
                 QFileInfo finfo(fileName);
@@ -407,9 +371,10 @@ void FraqtiveMainWindow::processFractal(int id)
                 m_urlFileName="ftp://"+m_ftp_server+"/"+finfo.fileName();
                 ftp.uploadFile(fileName,m_urlFileName);
                 QLogger::QLog_Info("main",m_urlFileName);
-                qDebug()<<m_urlFileName;
+                qDebug()<<fileName<<m_urlFileName;
                 //by the following bracket resources are free and file can be deleted
             }
+            delete writer;
             QFile a(fileName);
             if(a.exists() && !a.remove())
             {
@@ -421,88 +386,8 @@ void FraqtiveMainWindow::processFractal(int id)
         m_isPreviousPrintDone=true;
     }
 }
-/*
-void FraqtiveMainWindow::mailSent(bool b)
-{
 
-    QMessageBox msgBox;
-    m_smtpClient->hideProgressDialog();
-    if(b)
-    {
-        msgBox.setIcon(QMessageBox::Information);
-        qDebug()<<"Email sent successfully.";
-        msgBox.setText("Email sent successfully.");
-    }
-    else
-    {
-        msgBox.setIcon(QMessageBox::Critical);
-        qDebug()<<"Email note delivered, please contact support.";
-        msgBox.setText("Email note delivered, please contact support.");
-    }
-    msgBox.exec();
-}*/
-/*QString FraqtiveMainWindow::getEmailSubject(QString path)
-{
-    QFile emailText(path);
-    if (!emailText.open(QIODevice::ReadOnly | QIODevice::Text))
-    {
-        QMessageBox msgBox;
-        msgBox.setText("Please contact support, file email.txt is missing.");
-        msgBox.setIcon(QMessageBox::Critical);
-        msgBox.exec();
-        return QString();
-    }
-    QTextStream in(&emailText);
-    return in.readLine();
-}
-QString FraqtiveMainWindow::getEmailText(QString url,QString path)
-{
-    QFile emailText(path);
-    if (!emailText.open(QIODevice::ReadOnly | QIODevice::Text))
-    {
-        QMessageBox msgBox;
-        msgBox.setText("Please contact support, file email.txt is missing.");
-        msgBox.setIcon(QMessageBox::Critical);
-        msgBox.exec();
-        return QString();
-    }
-    QTextStream in(&emailText);
-    in.readLine();//skip subject
 
-    QString body;
-    while (!in.atEnd())
-    {
-        QString line = in.readLine();
-        body.append(line);
-        body.append("\n");
-    }
-    body.replace("[link]",url);
-    return body;
-}
-void FraqtiveMainWindow::sendEmail(bool b)
-{
-    if(b)
-    {
-        qDebug()<<"ftp copy Sucess";
-        if(m_smtpClient==nullptr)
-        {
-            m_smtpClient=new SmtpClient(m_smtp_username, m_smtp_password, m_smtp_server, m_smtp_port,30000,this);
-            connect(m_smtpClient, SIGNAL(emailSent(bool)), this, SLOT(mailSent(bool)));
-        }
-        m_subject=getEmailSubject(m_pathToEmailTextFile);
-        m_body=getEmailText(m_urlFileName,m_pathToEmailTextFile);
-        m_smtpClient->sendMail(m_smtp_username,m_sendEmail_lineEdit->text(),m_subject,m_body);
-    }
-    else
-    {
-
-        qDebug()<<"Please contact support, ftp upload failed.";
-        QMessageBox msgBox;
-        msgBox.setText("Please contact support, ftp upload failed.");
-        msgBox.setIcon(QMessageBox::Critical);
-        msgBox.exec();
-    }
-}*/
 void FraqtiveMainWindow::closeEvent( QCloseEvent* e )
 {
     emit finished();
@@ -784,6 +669,7 @@ QImage FraqtiveMainWindow::currentImage()
 
 void FraqtiveMainWindow::generateImage()
 {
+
     GenerateImageDialog dialog( this );
 
     if ( dialog.exec() == QDialog::Accepted ) {
@@ -797,6 +683,8 @@ void FraqtiveMainWindow::generateImage()
             generator.setColorSettings( m_model->gradient(), m_model->backgroundColor(), m_model->colorMapping() );
             generator.setGeneratorSettings( dialog.generatorSettings() );
             generator.setViewSettings( dialog.viewSettings() );
+
+            qDebug()<<"saveimage"<<m_model->position().zoomFactor()<<m_model->position().angle()<<m_model->position().center();
 
             QProgressDialog progress( this );
             progress.setWindowModality( Qt::WindowModal );

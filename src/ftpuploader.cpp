@@ -6,7 +6,7 @@ adjusted the work from internet
 
 #include "ftpuploader.h"
 #include <QMessageBox>
-
+#include <QTimer>
 FtpUploader::FtpUploader(QString username, QString password, QString server, int port, QWidget *p ): QWidget(p)
 {
     m_port=port;
@@ -59,7 +59,9 @@ void FtpUploader::uploadFile(const QString fileName,const QString &urlFileName) 
             QMessageBox m;
             m.setIcon(QMessageBox::Information);
             m.setText(tr("Fractal is uploaded successfully."));
+            QTimer::singleShot(5000, &m, SLOT(accept()));
             m.exec();
+
         }
         else
         {
