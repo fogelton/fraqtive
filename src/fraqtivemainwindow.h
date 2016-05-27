@@ -21,7 +21,7 @@
 
 #include <QMainWindow>
 #include <QFileDialog>
-
+#include <QTimer>
 #include "ui_fraqtivemainwindow.h"
 #include "xmlui/client.h"
 #include "QLogger.h"
@@ -54,7 +54,7 @@ private slots:
     void previousBookmark();
     // void sendEmail(bool b);
     // void mailSent(bool b);
-
+    void checkEmptyFractal();
     void fractalType();
     void editGradient();
 
@@ -97,6 +97,7 @@ private:
     QImage currentImage();
 
 private:
+    QTimer m_timer_emptyFrameChecker;
     QLogger::QLoggerManager *m_log_manager;
 
     QString m_fileName,m_urlFileName;
@@ -105,6 +106,7 @@ private:
     int m_ftp_port;
     QString m_ftp_server;
     int m_bookmarkID=0;
+    bool m_isPreviousFractalEmpty=false;
 
 
     bool m_isPreviousPrintDone=true;

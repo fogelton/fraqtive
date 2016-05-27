@@ -247,12 +247,66 @@ FraqtiveMainWindow::FraqtiveMainWindow()
 
     if ( config->contains( "State" ) )
         restoreState( config->value( "State" ).toByteArray(), 2 );
+    m_timer_emptyFrameChecker.setInterval(30*1000);
+    connect(&m_timer_emptyFrameChecker,SIGNAL(timeout()),this,SLOT(checkEmptyFractal()));
+    m_timer_emptyFrameChecker.start();
 }
 
 FraqtiveMainWindow::~FraqtiveMainWindow()
 {
 }
+bool isFractalEmpty(QImage image)
+{
+  //  qDebug()<<image.width();
+    int hist[26]={0};
+    for(int x=0;x<image.width();++x)
+    {
+        for(int y=0;y<image.height();++y)
+        {
+            uint gray=(qRed(image.pixel(x,y))+qBlue(image.pixel(x,y))+qGreen(image.pixel(x,y)))/3;
+           // qDebug()<<gray;
+            ++hist[gray/10];
+        }
+    }
+    uint count=0;
+    for(int i=0;i<26;i++)
+        if(hist[i]>0)
+            count++;
+    qDebug()<<"histogram count"<<count;
+    if(count<5)
+        return true;
+    return false;
+}
+void FraqtiveMainWindow::checkEmptyFractal()
+{
+    ImageGenerator generator( this );
+    generator.setResolution( QSize(200,100));
+    generator.setParameters( m_model->fractalType(), m_model->position() );
+    generator.setColorSettings( m_model->gradient(), m_model->backgroundColor(), m_model->colorMapping() );
+    GeneratorSettings gs;
+    gs.setCalculationDepth(4.0);
+    gs.setDetailThreshold(0.0);
+    generator.setGeneratorSettings( gs);
+    ViewSettings vs;
+    vs.setAntiAliasing(HighAntiAliasing);
+    generator.setViewSettings( vs);
+    QEventLoop eventLoop;
+    connect( &generator, SIGNAL( completed() ), &eventLoop, SLOT( quit() ), Qt::QueuedConnection );
+    generator.start();
+    eventLoop.exec();
+    QImage image = generator.takeImage();
+    bool isEmpty=isFractalEmpty(image);
 
+    if(m_isPreviousFractalEmpty && isEmpty)
+    {
+        nextBookmark();
+        m_isPreviousFractalEmpty=false;
+    }else
+    {
+        m_isPreviousFractalEmpty=isEmpty;
+    }
+
+}
 void FraqtiveMainWindow::reverseGradient()
 {
     ColorMapping cm=m_model->colorMapping();
