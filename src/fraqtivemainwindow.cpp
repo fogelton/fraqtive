@@ -148,6 +148,14 @@ FraqtiveMainWindow::FraqtiveMainWindow()
     m_ftp_server=settings.value("server").toString();
     m_ftp_port=settings.value("port",21).toInt();
     settings.endGroup();
+
+    //m_imageHeight=14032;
+    //m_imageWidth=9920;
+    settings.beginGroup("resolution");
+    m_imageHeight=settings.value("height",14032).toInt();
+    m_imageWidth=settings.value("width",9920).toInt();
+    settings.endGroup();
+    qDebug()<< m_imageHeight<<m_imageWidth;
     //qDebug()<<m_ftp_password<<m_ftp_port<<m_ftp_server<<m_ftp_username;
     if(m_ftp_server.isEmpty())
     {
@@ -365,7 +373,7 @@ void FraqtiveMainWindow::processFractal(int id)
         m_isPreviousPrintDone=false;
         QString fileName = generateImageName(id);
         ImageGenerator generator( this );//2   0
-        generator.setResolution( QSize(14032,9920));//m_printImageDialog->resolution() * ( 1 << m_printImageDialog->multiSampling() ) );
+        generator.setResolution( QSize(m_imageWidth,m_imageHeight));//m_printImageDialog->resolution() * ( 1 << m_printImageDialog->multiSampling() ) );
         generator.setParameters( m_model->fractalType(), m_model->position() );
         generator.setColorSettings( m_model->gradient(), m_model->backgroundColor(), m_model->colorMapping() );
         GeneratorSettings gs;

@@ -107,7 +107,7 @@ private:
     QString m_ftp_server;
     int m_bookmarkID=0;
     bool m_isPreviousFractalEmpty=false;
-
+    int m_imageHeight,m_imageWidth;
 
     bool m_isPreviousPrintDone=true;
     Ui::FraqtiveMainWindow m_ui;
